@@ -14,7 +14,7 @@
 const CANTOS = [
   {
     id:"prologue", num:"PROLOG", title:"Selva Oscura", focus:"Kelahiran Dante · Hutan Gelap",
-    accent:"#7a6a8f", image:"images/dante.png",
+    accent:"#7a6a8f", image:"images/dante.png", sigil:"⏱",
     sections:[
       { h:"Terjebak di Hutan Gelap", p:[
         "Cerita dimulai di sebuah hutan gelap — seseorang terpojok oleh tiga pemburu bernama Lion, Wolf, dan Panther, yang telah lama memburunya atas perintah 'master' mereka. Orang ini kepergok sedang mengukir sesuatu yang namanya sengaja disamarkan dalam narasi — dan interupsi itu membuatnya kesal, bahkan sempat melawan verbal ke ketiga pemburu itu.",
@@ -46,7 +46,7 @@ const CANTOS = [
   },
   {
     id:"canto1", num:"CANTO I", title:"The Outcast", focus:"Fokus: Gregor · District 4, Old G Corp",
-    accent:"#a67c3d", image:"images/gregor.png",
+    accent:"#a67c3d", image:"images/gregor.png", sigil:"🪲",
     sections:[
       { h:"Perjalanan ke District 4", p:[
         "LCB menuju District 4, tempat cabang lama Lobotomy Corporation berada di kawasan Backstreets. Dalam perjalanan, bus mereka butuh bahan bakar — mereka terpaksa melawan preman jalanan untuk 'memberi makan' bus itu dengan Enkephalin yang diekstrak dari sistem saraf manusia hidup, momen yang membuat Dante dan Sinclair ngeri.",
@@ -77,7 +77,7 @@ const CANTOS = [
   },
   {
     id:"canto2", num:"CANTO II", title:"The Unloving", focus:"Fokus: Rodion · District 10, Kasino",
-    accent:"#5a7d99", image:"images/rodion.png",
+    accent:"#5a7d99", image:"images/rodion.png", sigil:"♠",
     sections:[
       { h:"Penyamaran di Kasino", p:[
         "Golden Bough kali ini terkubur di bawah sebuah kasino di District 10 — tempat yang, menurut Vergilius, seharusnya sudah familiar bagi Rodion. Kasino ini dikuasai berbagai Syndicate yang juga mengincar Bough yang sama. Rencananya: LCB harus menyamar sebagai salah satu Syndicate, lalu memenangkan permainan kartu menggunakan resource bernama 'wish power' dari Singularity milik J Corp — rencana yang dibuat dua agen LCCB, Effie dan Saude, yang dari awal sudah dipandang skeptis oleh para Sinner.",
@@ -111,7 +111,7 @@ const CANTOS = [
   },
   {
     id:"canto3", num:"CANTO III", title:"The Unconfronting", focus:"Fokus: Sinclair · Calw, District 11, K Corp",
-    accent:"#7d5a99", image:"images/sinclair.png",
+    accent:"#7d5a99", image:"images/sinclair.png", sigil:"⚡",
     sections:[
       { h:"Menuju Calw", p:[
         "LCB menuju District 11 untuk mengambil Golden Bough di Calw — kampung halaman Sinclair. Perjalanan dimulai dengan insiden di pos pemeriksaan imigrasi: Don Quixote mencoba mencegah petugas perbatasan memisahkan sebuah keluarga, berujung pertarungan. K Corp mendatangkan salah satu 'Fixer bintang' mereka, Siegfried, untuk menangani para Sinner — baru setelah membantai mereka semua habis-habisan dalam pertarungan sungguhan (dan mereka bangkit kembali seperti biasa), Siegfried mengizinkan LCB lewat. Vergilius menegur keras Don Quixote atas tindakan gegabahnya."
@@ -143,7 +143,7 @@ const CANTOS = [
   },
   {
     id:"canto4", num:"CANTO IV", title:"The Unchanging", focus:"Fokus: Yi Sang · N Corp Laboratory",
-    accent:"#c9a24b", image:"images/yisang.png",
+    accent:"#c9a24b", image:"images/yisang.png", sigil:"🕊",
     sections:[
       { h:"Serangan TLA", p:[
         "LCB menuju laboratorium K Corp untuk mengklaim Golden Bough sesuai kontrak. Sesampainya, mereka bertemu Dongrang, Manajer Cabang K Corp — kenalan lama Yi Sang. Tiba-tiba, gedung diserang teroris 'Technology Liberation Alliance' (TLA) yang membajak gedung dan mesin-mesinnya, memaksa penjaga K Corp menyerang balik LCB."
@@ -176,7 +176,7 @@ const CANTOS = [
   },
   {
     id:"canto5", num:"CANTO V", title:"The Evil Defining", focus:"Fokus: Ishmael · Great Lake, Paus Pucat",
-    accent:"#2f7d78", image:"images/ishmael.png",
+    accent:"#2f7d78", image:"images/ishmael.png", sigil:"🐋",
     sections:[
       { h:"Menyeberangi Great Lake", p:[
         "Dengan Mephistopheles kini bisa berlayar, para Sinner menyeberangi Great Lake mencari Golden Bough. Ishmael, yang sejak insiden sebelumnya menolak kembali ke danau ini, sempat menolak bekerja sama kecuali diperintah langsung. Sinner lain kesulitan mempelajari 'Hukum Great Lake', nyaris celaka beberapa kali menghadapi paus dan duyung penghuni perairan itu. Di sela ini, Dante menemukan kekuatan baru dari jam prostetiknya: kemampuan melihat ke dalam pikiran dan keinginan orang lain."
@@ -207,7 +207,7 @@ const CANTOS = [
   },
   {
     id:"canto6", num:"CANTO VI", title:"The Heartbreaking", focus:"Fokus: Heathcliff · Wuthering Heights, T Corp",
-    accent:"#6b3d6b", image:"images/heathcliff.png",
+    accent:"#6b3d6b", image:"images/heathcliff.png", sigil:"🥀",
     sections:[
       { h:"Kembali ke Wuthering Heights", p:[
         "LCB tiba di kawasan T Corp tanpa insiden. Dalam perjalanan, mereka melihat seorang pria dikeroyok geng yang kehabisan 'waktu', dan belajar banyak orang menghilang — dicurigai penculikan massal oleh sebuah Syndicate. Heathcliff mengungkap dia dulu dibawa ke Wuthering Heights sebagai pelayan, dianiaya oleh hampir semua orang kecuali Catherine, karena dia lahir di Backstreets.",
@@ -237,7 +237,7 @@ const CANTOS = [
   },
   {
     id:"canto7", num:"CANTO VII", title:"The Dream Ending", focus:"Fokus: Don Quixote · La Manchaland, P Corp",
-    accent:"#b0632e", image:"images/donquixote.png",
+    accent:"#b0632e", image:"images/donquixote.png", sigil:"🗡",
     sections:[
       { h:"Urban Nightmare", p:[
         "LCB tiba di P Corp setelah insiden kereta WARP. Dante diinterogasi soal kejadian itu, tetapi diselamatkan kabar misi baru dari Vergilius — operasi kelompok bersama berbagai Fixer lain. Kepala Departemen Arsip P Corp, Cesara, menjelaskan tentang kasus 'Urban Nightmare' bernama 'La Manchaland' yang sporadis muncul di Backstreets District 16, memikat warga dan menyebabkan banyak kasus orang hilang."
@@ -267,7 +267,7 @@ const CANTOS = [
   },
   {
     id:"canto8", num:"CANTO VIII", title:"The Surrendered Witnessing", focus:"Fokus: Hong Lu · District 8, H Corp",
-    accent:"#3d7d4f", image:"images/honglu.png",
+    accent:"#3d7d4f", image:"images/honglu.png", sigil:"👁",
     sections:[
       { h:"Retaknya Aliansi", p:[
         "Pagi setelah insiden Intervallo V, para Sinner melanjutkan perjalanan bersama Jia Xichun (adik Hong Lu), Wei, Pilot, dan Saude. Xichun menegaskan dia merasa dikhianati karena LCB menarik kembali tawaran bantuan mereka dalam 'perang' evaluasi Kepala Keluarga. Ketika Hong Lu tetap patuh pada keputusan perusahaan, Xichun secara resmi mengakhiri aliansi mereka, mengkritik apa yang dia anggap ketiadaan kehendak bebas Hong Lu, lalu pergi bersama Wei."
@@ -298,7 +298,7 @@ const CANTOS = [
   },
   {
     id:"canto9", num:"CANTO IX", title:"The Unsevering", focus:"Fokus: Ryoshu · Markas Limbus Company",
-    accent:"#8a2e2e", image:"images/ryoshu.png",
+    accent:"#8a2e2e", image:"images/ryoshu.png", sigil:"🖌",
     sections:[
       { h:"Serangan ke Markas", p:[
         "Setelah berpamitan dengan Hongyuan, LCB mendapati diri mereka diserang di dalam markas Limbus Company sendiri — musuh berasal dari aliansi aneh dan berbahaya antara Five Fingers, mengincar sesuatu yang penting. Para Sinner bergegas kembali ke markas lewat Backdoor, sementara ingatan Ryoshu yang termutilasi mulai terungkap."
@@ -350,6 +350,26 @@ const PERSONS = [
   { name:"Rien", desc:"Sosok yang menciptakan jarak dengan Ryoshu atas nama 'Prescripts', menyesal dan memohon maaf di detik terakhirnya.", cantos:["canto9"] },
   { name:"Sang Yi", desc:"Versi 'ideal' Yi Sang dari dunia cermin — sukses secara materi, tapi apatis terhadap penderitaan orang lain.", cantos:["canto4"] }
 ]
+
+// ============================================================
+// XREF — dipakai applyXref() di index.html untuk auto-link nama
+// karakter yang disebut di Canto lain balik ke Canto "rumah"-nya.
+// Diturunkan dari PERSONS supaya tidak dobel maintenance.
+// "Dante" sengaja dikecualikan karena namanya muncul di hampir
+// setiap paragraf di semua Canto — auto-link penuh bakal berisik.
+// ============================================================
+const XREF = {}
+;(function buildXref(){
+  const aliases = { "Don Quixote / Sancho": ["Don Quixote","Sancho"] }
+  const exclude = new Set(["Dante"])
+  PERSONS.forEach(p => {
+    if (exclude.has(p.name)) return
+    const profileIsCanto = p.profileKey && CANTOS.some(c => c.id === p.profileKey)
+    const home = profileIsCanto ? p.profileKey : (p.cantos && p.cantos[0])
+    if (!home) return
+    ;(aliases[p.name] || [p.name]).forEach(n => { XREF[n] = home })
+  })
+})()
 
 const RELATIONS = [
   ["Dante","Vergilius"], ["Dante","Faust"], ["Vergilius","Faust"],
