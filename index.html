@@ -134,6 +134,28 @@
   @keyframes toastIn{ to{ opacity:1; transform:translateY(0); } }
   @keyframes toastOut{ to{ opacity:0; transform:translateY(-10px); } }
 
+  /* ===== Confirm modal (achievement-style, with buttons) ===== */
+  #confirmOverlay{
+    position:fixed; inset:0; z-index:300; background:rgba(9,7,11,0.72); backdrop-filter:blur(2px);
+    display:flex; align-items:center; justify-content:center; padding:1.2em;
+    opacity:0; pointer-events:none; transition:opacity 0.25s ease;
+  }
+  #confirmOverlay.show{ opacity:1; pointer-events:auto; }
+  .confirm-modal{
+    background:var(--ink); border:1px solid var(--clock-gold); border-radius:16px;
+    padding:1.8em 2em; max-width:min(90vw, 400px); text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.55);
+    transform:translateY(12px) scale(0.98); transition:transform 0.25s ease;
+  }
+  #confirmOverlay.show .confirm-modal{ transform:translateY(0) scale(1); }
+  .confirm-modal-icon{ font-size:1.6rem; color:var(--clock-gold); margin-bottom:0.3em; }
+  .confirm-modal-title{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:600;
+    font-size:1.25rem; color:var(--clock-gold); margin-bottom:0.6em;
+  }
+  .confirm-modal-body{ font-size:0.85rem; color:var(--parchment-dim); line-height:1.65; margin-bottom:1.4em; }
+  .confirm-modal-actions{ display:flex; gap:0.7em; justify-content:center; flex-wrap:wrap; }
+
   .onboard-tip{
     position:fixed; bottom:6.5em; left:50%; transform:translateX(-50%) translateY(20px);
     z-index:65; max-width:min(90vw, 420px); background:var(--ink); border:1px solid var(--clock-gold);
@@ -694,6 +716,18 @@
 <div class="hl-popup" id="hlPopup">✎ Sorot Teks</div>
 
 <div id="toastContainer"></div>
+
+<div id="confirmOverlay">
+  <div class="confirm-modal">
+    <div class="confirm-modal-icon" id="confirmModalIcon">⟲</div>
+    <div class="confirm-modal-title" id="confirmModalTitle">Yakin?</div>
+    <div class="confirm-modal-body" id="confirmModalBody"></div>
+    <div class="confirm-modal-actions">
+      <button class="tool-btn" id="confirmModalCancel">Batal</button>
+      <button class="tool-btn danger" id="confirmModalOk">Ya</button>
+    </div>
+  </div>
+</div>
 
 <div class="onboard-tip" id="onboardTip">
   <div class="onboard-tip-close" id="onboardClose">✕</div>
@@ -1902,16 +1936,38 @@ document.getElementById('importFileInput').addEventListener('change', (e) => {
   reader.readAsText(file);
 });
 
+// ================= Confirm modal (achievement-style, with buttons) =================
+function showConfirmModal({icon, title, body, confirmText, onConfirm}){
+  const overlay = document.getElementById('confirmOverlay');
+  document.getElementById('confirmModalIcon').textContent = icon || '⟲';
+  document.getElementById('confirmModalTitle').textContent = title || 'Yakin?';
+  document.getElementById('confirmModalBody').textContent = body || '';
+  const okBtn = document.getElementById('confirmModalOk');
+  const cancelBtn = document.getElementById('confirmModalCancel');
+  okBtn.textContent = confirmText || 'Ya';
+  overlay.classList.add('show');
+  const close = () => overlay.classList.remove('show');
+  okBtn.onclick = () => { close(); onConfirm(); };
+  cancelBtn.onclick = close;
+  overlay.onclick = (e) => { if (e.target === overlay) close(); };
+}
+
 document.getElementById('btnResetData').addEventListener('click', () => {
-  const ok = confirm('Ini akan menghapus SEMUA progres baca, sorotan, catatan, dan penanda — lalu mulai dari awal lagi. Preferensi tampilan (ukuran font, mode imersif, dll) tidak ikut terhapus. Tindakan ini tidak bisa dibatalkan.\n\nTips: klik "Export Data" dulu kalau mau simpan cadangan.\n\nLanjutkan reset?');
-  if (!ok) return;
-  // Preferensi tampilan sengaja dikecualikan — cuma progres baca yang direset.
-  const keepKeys = new Set(['limbus-font-scale','limbus-font-family','limbus-reduce-motion','limbus-spacing','limbus-sfx-muted','limbus-immersive','limbus-onboarded']);
-  Object.keys(localStorage).forEach(k => {
-    if (k.startsWith('limbus-') && !keepKeys.has(k)) localStorage.removeItem(k);
+  showConfirmModal({
+    icon:'⟲',
+    title:'Reset Progres?',
+    body:'Ini akan menghapus semua progres baca, sorotan, catatan, dan penanda — lalu mulai dari awal lagi. Preferensi tampilan (ukuran font, mode imersif, dll) tidak ikut terhapus. Tindakan ini tidak bisa dibatalkan. Tips: klik "Export Data" dulu kalau mau simpan cadangan.',
+    confirmText:'Ya, Reset',
+    onConfirm: () => {
+      // Preferensi tampilan sengaja dikecualikan — cuma progres baca yang direset.
+      const keepKeys = new Set(['limbus-font-scale','limbus-font-family','limbus-reduce-motion','limbus-spacing','limbus-sfx-muted','limbus-immersive','limbus-onboarded']);
+      Object.keys(localStorage).forEach(k => {
+        if (k.startsWith('limbus-') && !keepKeys.has(k)) localStorage.removeItem(k);
+      });
+      showToast('✦ Progres Direset');
+      setTimeout(() => location.reload(), 1200);
+    }
   });
-  alert('Progres berhasil direset. Halaman akan dimuat ulang.');
-  location.reload();
 });
 
 // ================= Line-height / spacing toggle =================
