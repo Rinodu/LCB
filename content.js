@@ -57,8 +57,8 @@ const CANTOS = [
         "Aya bersikap santai dan ramah, sementara Hopkins awalnya agak meremehkan penampilan para Sinner yang berantakan — sikap yang cepat berubah begitu mereka mulai bekerja sama."
       ]},
       { h:"Pengkhianatan di Dalam Fasilitas", p:[
-        "Begitu masuk, mereka mendapati fasilitas itu dipenuhi Abnormality dan sisa-sisa pasukan Old G Corp. Dalam pertempuran ini, Aya tewas — dibunuh Abnormality tak lama setelah bertemu para Sinner.",
-        "Setelah Abnormality itu dikalahkan, Yuri mendekat untuk mengambil Golden Bough — tetapi Abnormality itu, sebagai upaya bertahan hidup terakhir, tiba-tiba mengonsumsi Yuri dan berubah bentuk jadi lebih kuat, mengambil wujud kepala Yuri sebagai bagian dari dirinya. Para Sinner terpaksa mengalahkannya untuk kedua kalinya. Di detik-detik terakhir, Abnormality itu mengeluarkan kepala Yuri sebagai taktik pertahanan diri — momen yang cukup lama menahan tangan para Sinner, karena Gregor tidak sanggup membunuhnya selama itu mengambil wujud temannya."
+        "Begitu masuk, mereka mendapati fasilitas itu dipenuhi Abnormality dan sisa-sisa pasukan Old G Corp. Dalam pertempuran ini, Aya tewas — dibunuh salah satu Abnormality (Ebony Queen's Apple) tak lama setelah bertemu para Sinner.",
+        "Mendekati Golden Bough, mereka berhadapan dengan Abnormality lain, Golden Apple. Setelah dikalahkan, Yuri mendekat untuk mengambil Bough — tetapi Abnormality itu, sebagai upaya bertahan hidup terakhir, tiba-tiba mengonsumsi Yuri dan bermutasi jadi lebih kuat (False Apple), mengambil wujud kepala Yuri sebagai bagian dari dirinya. Para Sinner terpaksa mengalahkannya untuk kedua kalinya. Di detik-detik terakhir, Abnormality itu mengeluarkan kepala Yuri sebagai taktik pertahanan diri — momen yang cukup lama menahan tangan para Sinner, karena Gregor tidak sanggup membunuhnya selama itu mengambil wujud temannya."
       ]},
       { h:"Kegagalan Misi dan Old Shame Gregor", p:[
         "Sekelompok orang asing datang dan mengambil Golden Bough itu tepat dari mayat Abnormality yang sudah dikalahkan — dipimpin Hermann, dengan anggota termasuk Jia Huan (kakak Hong Lu) dan Gubo (mantan rekan Yi Sang). Kelompok itu melumpuhkan para Sinner dan pergi. Misi pertama LCB berakhir gagal total.",
@@ -87,10 +87,10 @@ const CANTOS = [
         "Di lantai-lantai berikutnya, mereka harus melewati beberapa kelompok berbeda. Los Mariachis membiarkan mereka lewat setelah Sinclair diminta menari pakai maracas — dan berkomentar tarian itu terasa penuh kegelapan yang direpresi, foreshadowing yang baru dijelaskan lebih dalam di Canto III. Mereka menolak tawaran menari dari Don Quixote karena merasa dia tidak tulus dengan gairahnya. Tieqiu Crew, di sisi lain, terkesan begitu Ryoshu menceritakan kisah pertarungannya dengan sangat vulgar dan detail."
       ]},
       { h:"Puncak: Permainan Kartu dan Reuni", p:[
-        "Sampai di lantai teratas, Rodion meminta izin ikut main — berbohong bahwa dia masih punya sisa wish power, padahal sudah habis. Dia berhadapan dengan bos Tieqiu, pemimpin Mariachi bernama Aida, dan — kejutan besarnya — Sonya, pendiri organisasi Yurodiviye, yang ternyata teman lama Rodion. Rodion berhasil menang, tetapi seorang kompetitor lain mencoba membunuhnya demi Golden Bough. LCB langsung bergerak melumpuhkan penyerang itu bersama-sama."
+        "Sampai di lantai teratas, Rodion meminta izin ikut main — berbohong bahwa dia masih punya sisa wish power, padahal sudah habis. Dia berhadapan dengan bos Tieqiu, pemimpin Mariachi bernama Aida, dan — kejutan besarnya — Sonya, salah satu pendiri Yurodiviye bersama Rodion sendiri di masa lalu, yang ternyata teman lama Rodion. Rodion berhasil menang, tetapi seorang kompetitor lain mencoba membunuhnya demi Golden Bough. LCB langsung bergerak melumpuhkan penyerang itu bersama-sama."
       ]},
       { h:"Terungkap: Masa Lalu Rodion", p:[
-        "Di bawah kasino ternyata ada penjara bawah tanah J Corp, penuh penjaga, budak berutang, dan Abnormality baru. Di sinilah masa lalu Rodion sebagai mantan anggota Yurodivy terungkap: dia dulu ingin membantu komunitasnya, tetapi frustrasi karena Yurodivy hanya sibuk berdiskusi tanpa tindakan nyata, sementara orang-orang di sekitarnya mati kelaparan. Puncaknya: Rodion, yang sudah tidak tahan, akhirnya membunuh seorang rentenir korup yang memeras lingkungannya sendiri — tindakan yang jadi alasan dia meninggalkan Yurodivy."
+        "Di bawah kasino ternyata ada penjara bawah tanah J Corp, penuh penjaga, budak berutang, dan Abnormality baru. Di sinilah masa lalu Rodion sebagai salah satu pendiri Yurodivy (bersama Sonya) terungkap: dia dulu ingin membantu komunitasnya, tetapi frustrasi karena Yurodivy hanya sibuk berdiskusi tanpa tindakan nyata, sementara orang-orang di sekitarnya mati kelaparan. Puncaknya: Rodion, yang sudah tidak tahan, akhirnya membunuh seorang rentenir korup yang memeras lingkungannya sendiri — tindakan yang jadi alasan dia meninggalkan Yurodivy."
       ]},
       { h:"Konfrontasi dengan Sonya", p:[
         "Semakin dalam mereka masuk, area itu makin dingin, hingga akhirnya mereka menemukan kastil es raksasa. Sonya menunggu di sana, ingin membujuk Rodion kembali ke Yurodiviye — meremehkan usaha Rodion menjauh dari uang dan judi. Rodion balik menyuarakan kekecewaannya soal hipokrisi Sonya, yang membiarkan anak buahnya mencuri dari pedagang kecil, persis seperti orang-orang yang dulu ingin mereka lawan.",
@@ -114,7 +114,7 @@ const CANTOS = [
     accent:"#7d5a99", image:"images/sinclair.png",
     sections:[
       { h:"Menuju Calw", p:[
-        "LCB menuju District 11 untuk mengambil Golden Bough di Calw — kampung halaman Sinclair. Perjalanan dimulai dengan insiden di pos pemeriksaan imigrasi: Don Quixote mencoba mencegah petugas perbatasan memisahkan sebuah keluarga, berujung pertarungan. K Corp mendatangkan salah satu 'Fixer bintang' mereka, Siegfried, untuk menangani para Sinner — baru setelah membunuh mereka semua secara simulasi, Siegfried mengizinkan LCB lewat. Vergilius menegur keras Don Quixote atas tindakan gegabahnya."
+        "LCB menuju District 11 untuk mengambil Golden Bough di Calw — kampung halaman Sinclair. Perjalanan dimulai dengan insiden di pos pemeriksaan imigrasi: Don Quixote mencoba mencegah petugas perbatasan memisahkan sebuah keluarga, berujung pertarungan. K Corp mendatangkan salah satu 'Fixer bintang' mereka, Siegfried, untuk menangani para Sinner — baru setelah membantai mereka semua habis-habisan dalam pertarungan sungguhan (dan mereka bangkit kembali seperti biasa), Siegfried mengizinkan LCB lewat. Vergilius menegur keras Don Quixote atas tindakan gegabahnya."
       ]},
       { h:"Inkuisisi Nagel und Hammer", p:[
         "Dalam perjalanan ke Calw, mereka dihadang Inkuisisi Nagel und Hammer dari N Corp, yang menyebut Dante dan bus Mephistopheles sebagai 'ternoda'. Setelah negosiasi gagal, pertarungan pecah. Heathcliff, sudah lelah 'bersikap baik', memutuskan menghabisi para Inquisitor, diikuti Sinner lainnya.",
@@ -149,7 +149,7 @@ const CANTOS = [
         "LCB menuju laboratorium K Corp untuk mengklaim Golden Bough sesuai kontrak. Sesampainya, mereka bertemu Dongrang, Manajer Cabang K Corp — kenalan lama Yi Sang. Tiba-tiba, gedung diserang teroris 'Technology Liberation Alliance' (TLA) yang membajak gedung dan mesin-mesinnya, memaksa penjaga K Corp menyerang balik LCB."
       ]},
       { h:"Kematian Dongbaek", p:[
-        "Dongbaek, seorang wanita yang tunduk pada Dongrang, mulai terdistorsi saat dimarahi atas kegagalannya — tetapi alih-alih terdistorsi penuh, dia justru mendapat E.G.O personal dan terus melawan para Sinner. Setelah kalah lagi, Dongrang membunuhnya sendiri menggunakan Golden Bough yang dia jatuhkan — mengklaim ini sebagai 'tindakan belas kasihan', karena N Corp dan Gubo sedang membangun League of Nine baru, membunuh anggota lama yang menolak bergabung."
+        "Dongbaek, pemimpin TLA sekaligus mantan rekan (dan rival) Dongrang dari League of Nine lama, mulai terdistorsi saat diprovokasi/dimarahi Dongrang atas kegagalannya — tetapi alih-alih terdistorsi penuh, dia justru mendapat E.G.O personal dan terus melawan para Sinner. Setelah kalah lagi, Dongrang membunuhnya sendiri menggunakan Golden Bough yang dia jatuhkan — mengklaim ini sebagai 'tindakan belas kasihan', karena N Corp dan Gubo sedang membangun League of Nine baru, membunuh anggota lama yang menolak bergabung."
       ]},
       { h:"League of Nine Littérateurs", p:[
         "Golden Bough beresonansi dengan Yi Sang, membuat gedung itu terdistorsi — semua penjaga K Corp dan anggota TLA dibangkitkan sebagai zombie tanpa kesadaran. Para Sinner bertarung menerobos mereka sampai mencapai gerbang menuju dungeon berbasis ingatan Yi Sang tentang League of Nine Littérateurs — kelompok lama rekan-rekannya dari S Corp. Para Sinner dipaksa memerankan anggota-anggota lain kelompok itu untuk maju.",
@@ -333,8 +333,8 @@ const PERSONS = [
   { name:"Faust", desc:"Sinner pertama yang bergabung dengan Limbus Company, paling misterius dari 12 Sinner. Diduga menyimpan rahasia besar terkait asal-usul bus Mephistopheles.", cantos:["prologue"] },
   { name:"Gregor", desc:"Sinner berwujud sebagian serangga, mantan alat propaganda Old G Corp. Referensi langsung ke 'The Metamorphosis' karya Kafka.", cantos:["canto1"], profileKey:"canto1" },
   { name:"Hermann", desc:"Antagonis berulang yang memimpin kelompok pesaing pemburu Golden Bough. Dulu melakukan operasi paksa terhadap Gregor semasa kecil.", cantos:["canto1","canto3","canto5","canto7"] },
-  { name:"Rodion", desc:"Mantan anggota organisasi Yurodiviye yang meninggalkan kelompoknya setelah membunuh rentenir korup. Namanya merujuk ke Raskolnikov dari 'Crime and Punishment'.", cantos:["canto2"], profileKey:"canto2" },
-  { name:"Sonya", desc:"Pendiri Yurodiviye, teman lama Rodion. Diam-diam punya kesepakatan dengan Hermann soal Golden Bough.", cantos:["canto2"] },
+  { name:"Rodion", desc:"Salah satu pendiri organisasi Yurodiviye (bersama Sonya) yang meninggalkan kelompoknya setelah membunuh rentenir korup. Namanya merujuk ke Raskolnikov dari 'Crime and Punishment'.", cantos:["canto2"], profileKey:"canto2" },
+  { name:"Sonya", desc:"Salah satu pendiri Yurodiviye bersama Rodion, teman lama Rodion. Diam-diam punya kesepakatan dengan Hermann soal Golden Bough.", cantos:["canto2"] },
   { name:"Sinclair", desc:"Sinner dari Calw, trauma soal budaya penggantian tubuh penuh yang dipaksakan keluarganya.", cantos:["canto3"], profileKey:"canto3" },
   { name:"Kromer", desc:"Teman masa kecil Sinclair yang memanipulasi kepercayaannya, akhirnya bermutasi jadi Distortion mengerikan.", cantos:["canto3"] },
   { name:"Yi Sang", desc:"Peneliti pencipta teknologi 'Cermin', pernah jadi bagian League of Nine Littérateurs. Namanya berarti 'ideal' sekaligus 'ganjil' dalam bahasa Korea.", cantos:["canto4"], profileKey:"canto4" },
@@ -381,7 +381,7 @@ const GLOSSARY = [
 const LOBOCORP_CONTENT = [
   { h:"Premis Dasar", p:[
     "Pemain berperan sebagai 'the Manager' (disebut juga 'X') yang mengelola Lobotomy Corporation — fasilitas yang 'mengurus' Abnormality lewat karyawan yang mengekstrak energi dari mereka, proses yang sangat berbahaya dan sering fatal. Sekretaris AI bernama Angela jadi pemandu utama sekaligus narator.",
-    "Tujuan akhirnya: mengumpulkan substansi 'Cogito' dari Abnormality untuk menghasilkan 'Seed of Light', yang akan dilepas ke seluruh kota selama 7 hari. Seluruh proses berjalan dalam siklus 50 hari yang ditetapkan sosok misterius bernama Ayin."
+    "Tujuan akhirnya: mengekstrak substansi 'Cogito' dari Carmen dan menyuntikkannya ke manusia untuk memicu psikis mereka bermanifestasi jadi Abnormality/E.G.O — proses yang jadi batu loncatan menuju terciptanya 'Seed of Light', yang akan dilepas ke seluruh kota selama 7 hari. Seluruh proses berjalan dalam siklus 50 hari yang ditetapkan sosok misterius bernama Ayin."
   ]},
   { h:"Struktur Fasilitas: Berbasis Kabbalah", p:[
     "Fasilitas ini dibagi jadi departemen bernama Sephirot dari mistisisme Kabbalah — masing-masing dikepalai seorang Sephirah. Ini bukan cuma nama estetik, tapi mencerminkan tema religius/mistis yang jadi tulang punggung seluruh narasi."
