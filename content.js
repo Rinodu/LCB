@@ -142,6 +142,36 @@ const CANTOS = [
     ]
   },
   {
+    id:"intervallo1", num:"INTERVALLO I", title:"Hell's Chicken", focus:"Interlude Komedi · District 11, Nest K (K Corp)",
+    accent:"#c2652e", sigil:"🍗",
+    sections:[
+      { h:"Penyergapan di Nest K", p:[
+        "Masih di District 11, tak lama setelah tragedi Calw, LCB transit di Nest K — cabang K Corp — dalam perjalanan menuju laboratorium K Corp tempat Golden Bough berikutnya menanti. Alih-alih penyambutan biasa, mereka disergap penjaga K Corp yang kepalanya sudah digantikan ayam mentah hidup — 'Headchicken', hasil sampingan dari sebuah eksperimen yang kacau.",
+        "Di tengah kekacauan itu, mereka bertemu Samjo, perwakilan datar dan tak berperasaan dari Departemen Pengembangan Sumber Daya Pangan K Corp, yang mewakili manajer restoran waralaba 'Bodhisattva Chicken'. Bisnis waralaba itu sedang diteror sebuah 'monster' di jalanan sekitar, dan mereka meminta LCB turun tangan."
+      ]},
+      { h:"Distortion di Balik Resep Curian", p:[
+        "Monster itu ternyata pemilik Eunbong's Bar & Fryers — warung ayam goreng tradisional kecil, saingan Bodhisattva Chicken — yang telah jatuh dalam Distortion. Faust menjelaskan: Distortion terjadi ketika keputusasaan seseorang melewati batas terakhirnya, mengubahnya jadi sesuatu yang nyaris tak lagi punya kendali penuh atas dirinya sendiri.",
+        "Penyebabnya terungkap: manajer Bodhisattva Chicken mencuri resep rahasia Eunbong, lalu membakar seluruh jejaknya lewat 'Concept Incinerator' — alat yang tak cuma menghancurkan benda, tapi menghapus keberadaannya dari ingatan dan kenyataan sekaligus. Yang tak disadari sang manajer: resep itu terikat erat ke kenangan masa kecil pemilik Eunbong tentang ibunya — dan penghapusan itulah yang benar-benar meremukkannya."
+      ]},
+      { h:"Kompetisi Memasak", p:[
+        "Karena Distortion cuma bisa 'diurai' lewat cara yang disetujui hati orang yang terdistorsi, Faust memutuskan solusinya: kompetisi memasak. Gregor dan Ryoshu memulai kompetisi lewat pertengkaran kecil mereka, masakan Meursault jadi yang paling mendekati enak, sementara Don Quixote dan Yi Sang tampil buruk di salah satu ronde.",
+        "Justru masakan Outis-lah yang akhirnya berhasil menembus hati sang pemilik yang terdistorsi, menyeret semua orang ke dalam visi kenangannya — masa kecilnya dimarahi sang ibu, dengan sebuah pintu yang mengarah lebih dalam ke ingatan itu."
+      ]},
+      { h:"Ayam yang Ternyata Bukan Ayam", p:[
+        "Titik baliknya datang lewat kesadaran yang absurd sekaligus menyentuh: kupon yang selama ini dia kira kupon ayam dari ibunya — yang jadi dasar seluruh identitas dan kenangannya — ternyata kupon pizza. Ibunya tak pernah benar-benar suka ayam. Kesalahpahaman kecil itulah yang akhirnya memecah Distortion-nya, dan dia kembali normal.",
+        "Sebagai penutup anti-klimaks: pemilik yang sudah pulih memberi LCB sebuah kotak hadiah — yang isinya cuma boneka maskot restoran yang tak pernah benar-benar diproduksi."
+      ]}
+    ],
+    quote:"“Selama ini kukira ibu suka ayam. Ternyata dia cuma suka pizza.”",
+    song:null, songNote:null,
+    philosophy:[
+      "Intervallo ini secara sengaja jadi jeda komedik — 'penawar rasa' di antara trauma Calw (Canto III) dan beban psikologis Canto IV. Tapi di balik leluconnya, ada mekanisme yang cukup gelap: 'Concept Incinerator' tidak cuma menghancurkan benda, tapi menghapus <strong>ingatan dan bukti bahwa sesuatu pernah ada</strong> — cara yang lebih senyap (dan dengan caranya sendiri, lebih kejam) untuk melenyapkan seseorang dibanding kekerasan fisik yang biasa mewarnai Canto-Canto utama.",
+      "Judulnya sendiri — 'Hell's Chicken' — kemungkinan besar pelesetan dari acara TV 'Hell's Kitchen', menegaskan nada satirnya. Di baliknya ada sindiran ringan soal korporasi besar (didukung Wing K Corp) yang mencuri resep usaha kecil independen lalu menghapus jejaknya demi mematikan saingan — gema kecil dari tema kekuasaan korporat yang ditangani jauh lebih serius di Canto III sebelumnya (Inkuisisi K Corp yang meluluhlantakkan Calw).",
+      "Tapi inti emosionalnya justru ada di absurditas kenangan yang keliru: seluruh keputusasaan sang pemilik warung dibangun di atas ingatan yang ternyata salah sejak awal — ibunya tak pernah suka ayam. Pertanyaan kecil namun jujur soal <strong>seberapa jauh identitas dan duka kita dibangun dari kenangan yang bahkan mungkin tak akurat</strong>.",
+      "Belum ada tema musik Mili yang terverifikasi untuk chapter ini (kemungkinan besar temanya digarap Studio EIM, bukan Mili) — jadi tidak dicantumkan di sini sampai ada sumber yang bisa dipastikan."
+    ]
+  },
+  {
     id:"canto4", num:"CANTO IV", title:"The Unchanging", focus:"Fokus: Yi Sang · N Corp Laboratory",
     accent:"#c9a24b", image:"images/yisang.png", sigil:"🕊",
     sections:[
