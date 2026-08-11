@@ -4,6 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>INFERNO — Limbus Company Canto Archive</title>
+<meta name="description" content="Arsip cerita Limbus Company — ringkasan naratif dan refleksi filosofis tiap Canto, dari Prolog sampai Canto IX, dalam Bahasa Indonesia.">
+<link rel="canonical" href="https://rinodu.github.io/LCB/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="INFERNO — Limbus Company Canto Archive">
+<meta property="og:title" content="INFERNO — Limbus Company Canto Archive">
+<meta property="og:description" content="Arsip cerita Limbus Company — ringkasan naratif dan refleksi filosofis tiap Canto, dari Prolog sampai Canto IX, dalam Bahasa Indonesia.">
+<meta property="og:url" content="https://rinodu.github.io/LCB/">
+<meta property="og:image" content="https://rinodu.github.io/LCB/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="id_ID">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="INFERNO — Limbus Company Canto Archive">
+<meta name="twitter:description" content="Arsip cerita Limbus Company — ringkasan naratif dan refleksi filosofis tiap Canto, dari Prolog sampai Canto IX, dalam Bahasa Indonesia.">
+<meta name="twitter:image" content="https://rinodu.github.io/LCB/og-image.png">
+
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230d0b10' rx='16'/%3E%3Ccircle cx='50' cy='50' r='34' fill='none' stroke='%23c9a24b' stroke-width='5'/%3E%3Cline x1='50' y1='50' x2='50' y2='26' stroke='%23c9a24b' stroke-width='5' stroke-linecap='round'/%3E%3Cline x1='50' y1='50' x2='68' y2='58' stroke='%23c9a24b' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Spectral:wght@300;500&display=swap');
@@ -354,7 +372,11 @@
   }
   .story .quote.revealed span.word, .lore-wrap .quote.revealed span.word{ opacity:1; transform:translateY(0); }
 
-  .sinner-bg{ position:fixed; top:0; right:0; bottom:0; left:0; z-index:0; pointer-events:none; overflow:hidden; }
+  .sinner-bg{
+    position:fixed; top:0; right:0; bottom:0; left:0; z-index:0; pointer-events:none; overflow:hidden;
+    opacity:0; transition:opacity 0.5s ease;
+  }
+  .sinner-bg.show{ opacity:1; }
   .sinner-bg::before{
     content:''; position:absolute; inset:0; background-image:var(--sinner-img, none);
     background-position: right 4vw bottom 0; background-repeat:no-repeat; background-size: auto min(78vh, 720px);
@@ -786,7 +808,6 @@
 
 <!-- ===== READER PAGE ===== -->
 <div class="page" id="page-reader">
-  <div class="sinner-bg" id="sinnerBg"></div>
   <div class="reader">
     <div class="reader-eyebrow" id="rEyebrow" title="Kembali ke Daftar Isi"></div>
     <div class="reader-focus" id="rFocus"></div>
@@ -973,6 +994,8 @@
     <button class="tool-btn danger" id="btnResetData">⟲ Reset Progres</button>
   </div>
 </div>
+
+<div class="sinner-bg" id="sinnerBg"></div>
 
 <div class="folio" id="folio"></div>
 
@@ -1493,6 +1516,7 @@ function openCanto(i, restoreScroll){
 
     const bg = document.getElementById('sinnerBg');
     bg.style.setProperty('--sinner-img', c.image ? `url('${c.image}')` : 'none');
+    bg.classList.add('show');
 
     document.getElementById('rEyebrow').textContent = c.sigil + '  ' + c.num + '  ·  Daftar Isi';
     document.getElementById('rFocus').textContent = c.focus;
@@ -1579,6 +1603,7 @@ btnNext.addEventListener('click', () => { if (currentIndex < CANTOS.length-1) op
 function backToIndex(){
   transitionTo(() => {
     showPage('index');
+    document.getElementById('sinnerBg').classList.remove('show');
     navbar.style.display = 'none';
     readProgress.classList.remove('show'); readProgress.style.width = '0%';
     folio.classList.remove('show');
