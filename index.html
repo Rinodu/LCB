@@ -1594,7 +1594,7 @@ function mountPlayer(videoId){
   iframeEl = document.createElement('iframe');
   iframeEl.allow = "autoplay; encrypted-media";
   iframeEl.title = "theme-player";
-  iframeEl.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1`;
+  iframeEl.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&loop=1&playlist=${videoId}&rel=0&modestbranding=1`;
   mount.appendChild(iframeEl);
 }
 
