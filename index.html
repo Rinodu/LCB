@@ -1710,7 +1710,7 @@ function renderPersons(){
   grid.innerHTML = PERSONS.map(p => `
     <div class="person-card">
       <div class="person-card-head">
-        ${PERSON_IMAGES[p.name] ? `<div class="person-avatar"><img src="${PERSON_IMAGES[p.name]}" alt="${p.name}" loading="lazy"></div>` : ''}
+        ${PERSON_IMAGES[p.name] ? `<div class="person-avatar"><img src="${PERSON_IMAGES[p.name].img}" alt="${p.name}" loading="lazy" style="object-position:${PERSON_IMAGES[p.name].pos}"></div>` : ''}
         <div class="person-name">${p.name}</div>
       </div>
       <div class="person-desc">${p.desc}</div>
