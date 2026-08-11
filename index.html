@@ -354,7 +354,11 @@
   }
   .story .quote.revealed span.word, .lore-wrap .quote.revealed span.word{ opacity:1; transform:translateY(0); }
 
-  .sinner-bg{ position:fixed; top:0; right:0; bottom:0; left:0; z-index:0; pointer-events:none; overflow:hidden; }
+  .sinner-bg{
+    position:fixed; top:0; right:0; bottom:0; left:0; z-index:0; pointer-events:none; overflow:hidden;
+    opacity:0; transition:opacity 0.5s ease;
+  }
+  .sinner-bg.show{ opacity:1; }
   .sinner-bg::before{
     content:''; position:absolute; inset:0; background-image:var(--sinner-img, none);
     background-position: right 4vw bottom 0; background-repeat:no-repeat; background-size: auto min(78vh, 720px);
@@ -786,7 +790,6 @@
 
 <!-- ===== READER PAGE ===== -->
 <div class="page" id="page-reader">
-  <div class="sinner-bg" id="sinnerBg"></div>
   <div class="reader">
     <div class="reader-eyebrow" id="rEyebrow" title="Kembali ke Daftar Isi"></div>
     <div class="reader-focus" id="rFocus"></div>
@@ -973,6 +976,8 @@
     <button class="tool-btn danger" id="btnResetData">⟲ Reset Progres</button>
   </div>
 </div>
+
+<div class="sinner-bg" id="sinnerBg"></div>
 
 <div class="folio" id="folio"></div>
 
@@ -1493,6 +1498,7 @@ function openCanto(i, restoreScroll){
 
     const bg = document.getElementById('sinnerBg');
     bg.style.setProperty('--sinner-img', c.image ? `url('${c.image}')` : 'none');
+    bg.classList.add('show');
 
     document.getElementById('rEyebrow').textContent = c.sigil + '  ' + c.num + '  ·  Daftar Isi';
     document.getElementById('rFocus').textContent = c.focus;
@@ -1579,6 +1585,7 @@ btnNext.addEventListener('click', () => { if (currentIndex < CANTOS.length-1) op
 function backToIndex(){
   transitionTo(() => {
     showPage('index');
+    document.getElementById('sinnerBg').classList.remove('show');
     navbar.style.display = 'none';
     readProgress.classList.remove('show'); readProgress.style.width = '0%';
     folio.classList.remove('show');
