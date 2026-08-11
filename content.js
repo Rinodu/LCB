@@ -351,6 +351,22 @@ const PERSONS = [
   { name:"Sang Yi", desc:"Versi 'ideal' Yi Sang dari dunia cermin — sukses secara materi, tapi apatis terhadap penderitaan orang lain.", cantos:["canto4"] }
 ]
 
+// Portrait untuk avatar di halaman Dramatis Personae — cuma karakter
+// yang art-nya tersedia di /images yang dipetakan di sini.
+const PERSON_IMAGES = {
+  "Dante": "images/dante.png",
+  "Faust": "images/Faust_StandingSprite.png",
+  "Gregor": "images/gregor.png",
+  "Rodion": "images/rodion.png",
+  "Sinclair": "images/sinclair.png",
+  "Yi Sang": "images/yisang.png",
+  "Ishmael": "images/ishmael.png",
+  "Heathcliff": "images/heathcliff.png",
+  "Don Quixote / Sancho": "images/donquixote.png",
+  "Hong Lu": "images/honglu.png",
+  "Ryoshu": "images/ryoshu.png"
+}
+
 // ============================================================
 // XREF — dipakai applyXref() di index.html untuk auto-link nama
 // karakter yang disebut di Canto lain balik ke Canto "rumah"-nya.
