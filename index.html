@@ -423,6 +423,7 @@
     padding:0.65em 1.1em; border-radius:2px; cursor:pointer; transition:all 0.2s ease;
   }
   .tool-btn:hover{ border-color:var(--accent); color:var(--parchment); }
+  .tool-btn.danger:hover{ border-color:#b23a3a; color:#e08a8a; }
 
   .notes-box{ margin-top:2.4em; }
   .notes-label{ font-family:'Spectral', serif; letter-spacing:0.2em; font-size:0.7rem; color:var(--parchment-dim); text-transform:uppercase; margin-bottom:0.7em; }
@@ -935,6 +936,7 @@
     <button class="tool-btn" id="btnExportData">⬇ Export Data</button>
     <button class="tool-btn" id="btnImportData">⬆ Import Data</button>
     <input type="file" id="importFileInput" accept=".json" style="display:none;">
+    <button class="tool-btn danger" id="btnResetData">⟲ Reset Progres</button>
   </div>
 </div>
 
@@ -1898,6 +1900,18 @@ document.getElementById('importFileInput').addEventListener('change', (e) => {
     }
   };
   reader.readAsText(file);
+});
+
+document.getElementById('btnResetData').addEventListener('click', () => {
+  const ok = confirm('Ini akan menghapus SEMUA progres baca, sorotan, catatan, dan penanda — lalu mulai dari awal lagi. Preferensi tampilan (ukuran font, mode imersif, dll) tidak ikut terhapus. Tindakan ini tidak bisa dibatalkan.\n\nTips: klik "Export Data" dulu kalau mau simpan cadangan.\n\nLanjutkan reset?');
+  if (!ok) return;
+  // Preferensi tampilan sengaja dikecualikan — cuma progres baca yang direset.
+  const keepKeys = new Set(['limbus-font-scale','limbus-font-family','limbus-reduce-motion','limbus-spacing','limbus-sfx-muted','limbus-immersive','limbus-onboarded']);
+  Object.keys(localStorage).forEach(k => {
+    if (k.startsWith('limbus-') && !keepKeys.has(k)) localStorage.removeItem(k);
+  });
+  alert('Progres berhasil direset. Halaman akan dimuat ulang.');
+  location.reload();
 });
 
 // ================= Line-height / spacing toggle =================
