@@ -1494,7 +1494,7 @@ function transitionTo(fn){
   setTimeout(() => { fn(); setTimeout(() => chapterTransition.classList.remove('active'), 40); }, 320);
 }
 
-function openCanto(i, restoreScroll){
+function openCanto(i, restoreScroll, fromPopstate){
   const readerEl = document.querySelector('.reader');
   const isCantoToCanto = currentIndex >= 0 && pages.reader.classList.contains('active');
   if (isCantoToCanto && readerEl) readerEl.classList.add('flip-out');
@@ -1578,6 +1578,7 @@ function openCanto(i, restoreScroll){
     sfxWhoosh();
     setReaderAmbient(true);
   });
+  if (!fromPopstate) pushHistoryState({v:'reader', i}, 'canto-' + CANTOS[i].id);
 }
 
 function mountPlayer(videoId){
@@ -1596,11 +1597,11 @@ function updateNav(){
   navCenter.innerHTML = `<strong>${CANTOS[currentIndex].num}</strong> &nbsp;/&nbsp; ${CANTOS.length} Canto`;
 }
 
-btnHome.addEventListener('click', backToIndex);
+btnHome.addEventListener('click', () => backToIndex());
 btnPrev.addEventListener('click', () => { if (currentIndex>0) openCanto(currentIndex-1); });
 btnNext.addEventListener('click', () => { if (currentIndex < CANTOS.length-1) openCanto(currentIndex+1); else backToIndex(); });
 
-function backToIndex(){
+function backToIndex(fromPopstate){
   transitionTo(() => {
     showPage('index');
     document.getElementById('sinnerBg').classList.remove('show');
@@ -1613,8 +1614,9 @@ function backToIndex(){
     renderArchive(searchBox.value);
     setReaderAmbient(false);
   });
+  if (!fromPopstate) pushHistoryState({v:'index'}, '');
 }
-document.getElementById('rEyebrow').addEventListener('click', backToIndex);
+document.getElementById('rEyebrow').addEventListener('click', () => backToIndex());
 
 // ================= Notes autosave =================
 let notesTimer = null;
@@ -1722,15 +1724,19 @@ function renderPersons(){
   });
   attachMagneticTilt('.person-card');
 }
-document.getElementById('linkPersons').addEventListener('click', () => transitionTo(() => { renderPersons(); showPage('persons'); startParticles('#c17f3a'); }));
-document.getElementById('personsBack').addEventListener('click', () => transitionTo(() => { showPage('index'); startParticles('#c9a24b'); renderArchive(searchBox.value); setReaderAmbient(false); }));
+function goPersons(fromPopstate){
+  transitionTo(() => { renderPersons(); showPage('persons'); startParticles('#c17f3a'); });
+  if (!fromPopstate) pushHistoryState({v:'persons'}, 'persons');
+}
+document.getElementById('linkPersons').addEventListener('click', () => goPersons());
+document.getElementById('personsBack').addEventListener('click', () => backToIndex());
 
 // ================= Sinner Detail Page =================
 function certaintyBadge(level){
   const labels = { canon:'✓ Canon — Dikonfirmasi Resmi', mixed:'~ Campuran Fakta & Analisis', theory:'? Teori Komunitas' };
   return `<span class="certainty-badge ${level}">${labels[level] || labels.mixed}</span>`;
 }
-function renderSinnerDetail(profileKey, name){
+function renderSinnerDetail(profileKey, name, fromPopstate){
   const profile = SINNER_PROFILES[profileKey];
   if (!profile) return;
   const person = PERSONS.find(p => p.profileKey === profileKey);
@@ -1771,8 +1777,9 @@ function renderSinnerDetail(profileKey, name){
     startParticles(person ? CANTOS.find(c=>c.id===person.profileKey)?.accent || '#c17f3a' : '#c17f3a');
     window.scrollTo(0,0);
   });
+  if (!fromPopstate) pushHistoryState({v:'sinnerDetail', k:profileKey, n:name}, 'sinner-' + encodeURIComponent(profileKey));
 }
-document.getElementById('sinnerDetailBack').addEventListener('click', () => transitionTo(() => { renderPersons(); showPage('persons'); startParticles('#c17f3a'); }));
+document.getElementById('sinnerDetailBack').addEventListener('click', () => goPersons());
 
 // ================= Relations page (radial SVG) =================
 function renderRelations(){
@@ -1804,8 +1811,12 @@ function renderRelations(){
   });
   svg.innerHTML = svgHTML;
 }
-document.getElementById('linkRelations').addEventListener('click', () => transitionTo(() => { renderRelations(); showPage('relations'); startParticles('#8067b8'); }));
-document.getElementById('relationsBack').addEventListener('click', () => transitionTo(() => { showPage('index'); startParticles('#c9a24b'); renderArchive(searchBox.value); setReaderAmbient(false); }));
+function goRelations(fromPopstate){
+  transitionTo(() => { renderRelations(); showPage('relations'); startParticles('#8067b8'); });
+  if (!fromPopstate) pushHistoryState({v:'relations'}, 'relations');
+}
+document.getElementById('linkRelations').addEventListener('click', () => goRelations());
+document.getElementById('relationsBack').addEventListener('click', () => backToIndex());
 
 // ================= Timeline page =================
 function renderTimeline(){
@@ -1834,8 +1845,12 @@ function renderTimeline(){
     });
   });
 }
-document.getElementById('linkTimeline').addEventListener('click', () => transitionTo(() => { renderTimeline(); showPage('timeline'); startParticles('#5a8a72'); }));
-document.getElementById('timelineBack').addEventListener('click', () => transitionTo(() => { showPage('index'); startParticles('#c9a24b'); renderArchive(searchBox.value); setReaderAmbient(false); }));
+function goTimeline(fromPopstate){
+  transitionTo(() => { renderTimeline(); showPage('timeline'); startParticles('#5a8a72'); });
+  if (!fromPopstate) pushHistoryState({v:'timeline'}, 'timeline');
+}
+document.getElementById('linkTimeline').addEventListener('click', () => goTimeline());
+document.getElementById('timelineBack').addEventListener('click', () => backToIndex());
 
 // ================= Glossary page =================
 function renderGlossary(){
@@ -1846,8 +1861,12 @@ function renderGlossary(){
     </div>
   `).join('');
 }
-document.getElementById('linkGlossary').addEventListener('click', () => transitionTo(() => { renderGlossary(); showPage('glossary'); startParticles('#7a8fa6'); }));
-document.getElementById('glossaryBack').addEventListener('click', () => transitionTo(() => { showPage('index'); startParticles('#c9a24b'); renderArchive(searchBox.value); setReaderAmbient(false); }));
+function goGlossary(fromPopstate){
+  transitionTo(() => { renderGlossary(); showPage('glossary'); startParticles('#7a8fa6'); });
+  if (!fromPopstate) pushHistoryState({v:'glossary'}, 'glossary');
+}
+document.getElementById('linkGlossary').addEventListener('click', () => goGlossary());
+document.getElementById('glossaryBack').addEventListener('click', () => backToIndex());
 
 // ================= Quotes collection page =================
 function renderQuotes(){
@@ -1861,8 +1880,12 @@ function renderQuotes(){
     el.addEventListener('click', () => openCanto(parseInt(el.getAttribute('data-target'))));
   });
 }
-document.getElementById('linkQuotes').addEventListener('click', () => transitionTo(() => { renderQuotes(); showPage('quotes'); startParticles('#a8738c', 'firefly'); }));
-document.getElementById('quotesBack').addEventListener('click', () => transitionTo(() => { showPage('index'); startParticles('#c9a24b'); renderArchive(searchBox.value); setReaderAmbient(false); }));
+function goQuotes(fromPopstate){
+  transitionTo(() => { renderQuotes(); showPage('quotes'); startParticles('#a8738c', 'firefly'); });
+  if (!fromPopstate) pushHistoryState({v:'quotes'}, 'quotes');
+}
+document.getElementById('linkQuotes').addEventListener('click', () => goQuotes());
+document.getElementById('quotesBack').addEventListener('click', () => backToIndex());
 
 // ================= Lore pages (Lobotomy Corp / Library of Ruina) =================
 function renderLoreContent(data, mountId){
@@ -1872,18 +1895,26 @@ function renderLoreContent(data, mountId){
   prepareQuoteReveal(document.getElementById(mountId));
   revealParagraphs(document.getElementById(mountId));
 }
-document.getElementById('linkLobocorp').addEventListener('click', () => transitionTo(() => {
-  renderLoreContent(LOBOCORP_CONTENT, 'lobocorpContent'); showPage('lobocorp');
-  startParticles('#5fb3c9', 'ash');
-  setReaderAmbient(true);
-}));
-document.getElementById('lobocorpBack').addEventListener('click', () => transitionTo(() => { showPage('index'); startParticles('#c9a24b'); renderArchive(searchBox.value); setReaderAmbient(false); }));
-document.getElementById('linkLibraryRuina').addEventListener('click', () => transitionTo(() => {
-  renderLoreContent(LIBRARYRUINA_CONTENT, 'libraryruinaContent'); showPage('libraryruina');
-  startParticles('#a8384a', 'paper');
-  setReaderAmbient(true);
-}));
-document.getElementById('libraryruinaBack').addEventListener('click', () => transitionTo(() => { showPage('index'); startParticles('#c9a24b'); renderArchive(searchBox.value); setReaderAmbient(false); }));
+function goLobocorp(fromPopstate){
+  transitionTo(() => {
+    renderLoreContent(LOBOCORP_CONTENT, 'lobocorpContent'); showPage('lobocorp');
+    startParticles('#5fb3c9', 'ash');
+    setReaderAmbient(true);
+  });
+  if (!fromPopstate) pushHistoryState({v:'lobocorp'}, 'lobocorp');
+}
+document.getElementById('linkLobocorp').addEventListener('click', () => goLobocorp());
+document.getElementById('lobocorpBack').addEventListener('click', () => backToIndex());
+function goLibraryRuina(fromPopstate){
+  transitionTo(() => {
+    renderLoreContent(LIBRARYRUINA_CONTENT, 'libraryruinaContent'); showPage('libraryruina');
+    startParticles('#a8384a', 'paper');
+    setReaderAmbient(true);
+  });
+  if (!fromPopstate) pushHistoryState({v:'libraryruina'}, 'libraryruina');
+}
+document.getElementById('linkLibraryRuina').addEventListener('click', () => goLibraryRuina());
+document.getElementById('libraryruinaBack').addEventListener('click', () => backToIndex());
 
 // ================= Stats page =================
 function renderStats(){
@@ -1930,8 +1961,12 @@ function renderStats(){
     bmWrap.innerHTML = '';
   }
 }
-document.getElementById('linkStats').addEventListener('click', () => transitionTo(() => { renderStats(); showPage('stats'); startParticles('#5ec98f'); }));
-document.getElementById('statsBack').addEventListener('click', () => transitionTo(() => { showPage('index'); startParticles('#c9a24b'); renderArchive(searchBox.value); setReaderAmbient(false); }));
+function goStats(fromPopstate){
+  transitionTo(() => { renderStats(); showPage('stats'); startParticles('#5ec98f'); });
+  if (!fromPopstate) pushHistoryState({v:'stats'}, 'stats');
+}
+document.getElementById('linkStats').addEventListener('click', () => goStats());
+document.getElementById('statsBack').addEventListener('click', () => backToIndex());
 
 // ================= Export / Import data =================
 document.getElementById('btnExportData').addEventListener('click', () => {
@@ -2288,6 +2323,63 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft' && currentIndex > 0) btnPrev.click();
   if (e.key === 'Escape') backToIndex();
 });
+
+// ================= Browser history integration =================
+// Tanpa ini, tombol back browser / gesture back di HP langsung
+// keluar dari situs — app ini gak pernah bikin history entry
+// sendiri, jadi browser gak punya "halaman sebelumnya" versi app
+// buat di-pop dan main hop keluar ke halaman sebelum situs ini.
+function pushHistoryState(state, hash){
+  try{ history.pushState(state, '', '#' + hash); }catch(e){}
+}
+function replaceHistoryState(state, hash){
+  try{ history.replaceState(state, '', hash ? ('#' + hash) : (location.pathname + location.search)); }catch(e){}
+}
+
+function applyHistoryState(state){
+  if (!state || !state.v || state.v === 'index'){ backToIndex(true); return; }
+  switch (state.v){
+    case 'reader': {
+      const idx = (typeof state.i === 'number' && CANTOS[state.i]) ? state.i : CANTOS.findIndex(c => c.id === state.id);
+      if (idx >= 0) openCanto(idx, 0, true); else backToIndex(true);
+      break;
+    }
+    case 'persons': goPersons(true); break;
+    case 'sinnerDetail': {
+      const name = state.n || PERSONS.find(p => p.profileKey === state.k)?.name || '';
+      if (SINNER_PROFILES[state.k]) renderSinnerDetail(state.k, name, true); else goPersons(true);
+      break;
+    }
+    case 'relations': goRelations(true); break;
+    case 'timeline': goTimeline(true); break;
+    case 'glossary': goGlossary(true); break;
+    case 'quotes': goQuotes(true); break;
+    case 'lobocorp': goLobocorp(true); break;
+    case 'libraryruina': goLibraryRuina(true); break;
+    case 'stats': goStats(true); break;
+    default: backToIndex(true);
+  }
+}
+window.addEventListener('popstate', (e) => applyHistoryState(e.state));
+
+// Deep-link / restore dari hash URL saat pertama kali dimuat (mis. reload atau buka link langsung)
+(function bootstrapHistory(){
+  const hash = location.hash.replace(/^#/, '');
+  const simplePages = ['persons','relations','timeline','glossary','quotes','lobocorp','libraryruina','stats'];
+  if (hash.startsWith('canto-')){
+    const idx = CANTOS.findIndex(c => c.id === hash.slice(6));
+    if (idx >= 0){ replaceHistoryState({v:'reader', i:idx}, hash); openCanto(idx, 0, true); return; }
+  } else if (hash.startsWith('sinner-')){
+    const key = decodeURIComponent(hash.slice(7));
+    const name = PERSONS.find(p => p.profileKey === key)?.name || '';
+    if (SINNER_PROFILES[key]){ replaceHistoryState({v:'sinnerDetail', k:key, n:name}, hash); renderSinnerDetail(key, name, true); return; }
+  } else if (simplePages.includes(hash)){
+    replaceHistoryState({v:hash}, hash);
+    applyHistoryState({v:hash});
+    return;
+  }
+  replaceHistoryState({v:'index'}, '');
+})();
 </script>
 
 </body>
