@@ -383,18 +383,21 @@ const PERSONS = [
 
 // Portrait untuk avatar di halaman Dramatis Personae — cuma karakter
 // yang art-nya tersedia di /images yang dipetakan di sini.
+// `pos` = object-position (X% Y%) buat nge-crop avatar bundar biar
+// pas di kepala/wajah — tiap art punya proporsi kanvas beda-beda,
+// jadi satu posisi default aja nggak cukup presisi buat semuanya.
 const PERSON_IMAGES = {
-  "Dante": "images/dante.png",
-  "Faust": "images/Faust_StandingSprite.png",
-  "Gregor": "images/gregor.png",
-  "Rodion": "images/rodion.png",
-  "Sinclair": "images/sinclair.png",
-  "Yi Sang": "images/yisang.png",
-  "Ishmael": "images/ishmael.png",
-  "Heathcliff": "images/heathcliff.png",
-  "Don Quixote / Sancho": "images/donquixote.png",
-  "Hong Lu": "images/honglu.png",
-  "Ryoshu": "images/ryoshu.png"
+  "Dante": { img:"images/dante.png", pos:"60% 10%" },
+  "Faust": { img:"images/Faust_StandingSprite.png", pos:"27% 8%" },
+  "Gregor": { img:"images/gregor.png", pos:"58% 7%" },
+  "Rodion": { img:"images/rodion.png", pos:"38% 8%" },
+  "Sinclair": { img:"images/sinclair.png", pos:"62% 21%" },
+  "Yi Sang": { img:"images/yisang.png", pos:"48% 6%" },
+  "Ishmael": { img:"images/ishmael.png", pos:"62% 8%" },
+  "Heathcliff": { img:"images/heathcliff.png", pos:"36% 9%" },
+  "Don Quixote / Sancho": { img:"images/donquixote.png", pos:"42% 32%" },
+  "Hong Lu": { img:"images/honglu.png", pos:"75% 15%" },
+  "Ryoshu": { img:"images/ryoshu.png", pos:"59% 9%" }
 }
 
 // ============================================================
