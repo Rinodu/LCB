@@ -1769,6 +1769,31 @@ function renderSinnerDetail(profileKey, name, fromPopstate){
       <div class="philosophy-label">Sintesis Arc Psikologis</div>
       <p>${profile.arcSummary}</p>
     </div>
+    ${profile.traits ? `
+    <div class="philosophy">
+      <div class="philosophy-label">Sifat</div>
+      <p>${profile.traits}</p>
+    </div>` : ''}
+    ${profile.towardOthers ? `
+    <div class="philosophy">
+      <div class="philosophy-label">Perilaku ke Sesama Sinner</div>
+      <p>${profile.towardOthers}</p>
+    </div>` : ''}
+    ${profile.relationships ? `
+    <div class="philosophy">
+      <div class="philosophy-label">Hubungan dengan Sesama Sinner</div>
+      <p>${profile.relationships}</p>
+    </div>` : ''}
+    ${profile.innerConflict ? `
+    <div class="philosophy">
+      <div class="philosophy-label">Konflik Utama</div>
+      <p>${profile.innerConflict}</p>
+    </div>` : ''}
+    ${profile.values ? `
+    <div class="philosophy">
+      <div class="philosophy-label">Nilai Filosofis</div>
+      <p>${profile.values}</p>
+    </div>` : ''}
     <div class="theme-panel">
       <div class="theme-panel-label">Muncul di Canto</div>
       <p style="font-size:1.05rem; line-height:2;">${relatedCantos}</p>
