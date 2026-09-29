@@ -4,7 +4,7 @@
 // Supaya nambah/edit konten (mis. Canto X nanti) tidak perlu
 // menyentuh kode fungsional sama sekali — cukup edit file ini.
 //
-// Terakhir diverifikasi/diperbarui: 11 Agustus 2026
+// Terakhir diverifikasi/diperbarui: 29 September 2026
 // Status "certainty" pada beberapa entri:
 //   "canon"  = dikonfirmasi resmi oleh Project Moon / dalam cerita
 //   "mixed"  = campuran fakta cerita + interpretasi/analisis penulis app ini
@@ -134,7 +134,7 @@ const CANTOS = [
       ]}
     ],
     quote:"“Tubuh bisa diganti seluruhnya — tapi rasa takut kehilangan diri sendiri tetap sama.”",
-    song:null, songNote:null,
+    song:"Between Two Worlds", songNote:"Lagu Mili yang mengiringi pertarungan penutup Canto III.", videoId:"lu8i-OyjLYk",
     philosophy:[
       "Canto ini mengangkat problem filosofis tentang <strong>identitas personal dan tubuh</strong> — sering disebut sebagai versi biologis dari 'kapal Theseus': kalau setiap bagian tubuhmu diganti satu per satu dengan prostetik, di titik mana kamu berhenti menjadi 'dirimu sendiri' dan mulai menjadi sesuatu yang lain sama sekali? Sinclair hidup dalam masyarakat yang menjawab pertanyaan berat ini dengan optimisme buta — penggantian tubuh secara penuh dirayakan begitu saja sebagai bentuk kemajuan, tanpa memberi ruang sedikit pun untuk keraguan.",
       "Ketakutan tersembunyi Sinclair sebenarnya adalah bentuk <strong>keberanian epistemik</strong> yang jarang sekali diberi ruang untuk berkembang: dia diam-diam curiga bahwa 'kemajuan' yang dirayakan begitu meriah oleh semua orang di sekitarnya sebenarnya adalah sebuah kehilangan yang disamarkan rapi. Manipulasi yang dilakukan Kromer justru memanfaatkan ketakutan yang sebenarnya valid itu — mengubah kerentanan emosional Sinclair menjadi alat kontrol atas dirinya. Ini pola yang sayangnya cukup umum terjadi: predator emosional sering kali menyamar sebagai 'satu-satunya orang yang benar-benar mengerti'.",
@@ -205,6 +205,31 @@ const CANTOS = [
     ]
   },
   {
+    "id": "intervallo2",
+    "num": "INTERVALLO II · 4.5",
+    "title": "S.E.A.",
+    "focus": "Molar Boatworks · persiapan menyeberangi Great Lake, District 21",
+    "accent": "#4d8791",
+    "image": "images/ishmael.png",
+    "sigil": "🌊",
+    "sections": [
+      {
+        "h": "Misi musim panas di tepi Great Lake",
+        "p": [
+          "Sesudah Canto IV, Mephistopheles tiba di District 21 dan harus dimodifikasi agar dapat mengarungi Great Lake. Para Sinner bekerja bersama Molar Boatworks—Olga, Mika, dan Rain—mengumpulkan rongsokan dari Trash Crabs untuk membuat bus terapung. Teknologi Resonance Tuning Fork milik U Corp. memungkinkan bagian-bagian itu menyatu dengan bus seolah memang dibuat untuknya.",
+          "Ishmael tidak bisa menganggap pekerjaan ini sebagai liburan. Pengalaman buruknya di laut membuatnya yakin kelompok belum siap menghadapi bahaya Great Lake. Usaha Dante mencairkan suasana lewat permainan pantai justru memperuncing pertengkarannya dengan Heathcliff; Vergilius membiarkan ketegangan itu terbuka. Setelah modifikasi selesai, Mephistopheles berangkat menuju laut yang selama ini ditakuti Ishmael."
+        ]
+      }
+    ],
+    "quote": "“Perjalanan baru dimulai setelah kita mengakui bahaya yang menunggu.”",
+    "song": null,
+    "songNote": null,
+    "philosophy": [
+      "S.E.A. menempatkan kecemasan Ishmael sebagai pengetahuan yang lahir dari pengalaman, sementara kelompok lain ingin bergerak sebelum merasa siap. Mereka tetap berangkat sambil membawa ketegangan itu.",
+      "Perubahan Mephistopheles menjadi kapal terjadi lewat kerja kolektif, tetapi hubungan para Sinner masih perlu waktu untuk menyesuaikan diri dengan risiko yang sama."
+    ]
+  },
+  {
     id:"canto5", num:"CANTO V", title:"The Evil Defining", focus:"Fokus: Ishmael · Great Lake, Paus Pucat",
     accent:"#2f7d78", image:"images/ishmael.png", sigil:"🐋",
     sections:[
@@ -233,6 +258,38 @@ const CANTOS = [
       "Canto ini adalah penceritaan ulang langsung dari novel 'Moby-Dick' karya Herman Melville — Ahab yang terobsesi memburu seekor paus putih sebagai personifikasi dari 'kejahatan', dan Ishmael sebagai narator yang nyaris ikut terseret ke dalam obsesi itu. Secara filosofis, Ahab merepresentasikan bahaya menjadikan satu objek atau musuh tunggal sebagai <strong>penjelasan satu-satunya atas seluruh penderitaan</strong> — sebuah kesalahan logika yang justru membuatnya kehilangan kemanusiaannya sendiri demi sebuah 'kemenangan' yang bahkan tidak akan menyembuhkan apa pun pada akhirnya.",
       "Ini terhubung langsung dengan kritik yang relevan bagi banyak karakter lain di Limbus Company — sebuah gema dari Ahab sendiri, dari Otto di Honkai Impact 3rd, atau dari Kromer di Canto III: <strong>obsesi terhadap satu sumber 'kejahatan' tunggal seringkali sebenarnya adalah cara untuk menghindari kompleksitas penderitaan yang sesungguhnya berlapis-lapis</strong>, bukan berasal dari satu penyebab tunggal saja.",
       "Judul lagu 'Compass' (kompas) sendiri menjadi metafora sentral dalam cerita ini: Ishmael akhirnya menyadari bahwa kompas moralnya selama ini justru diarahkan oleh Ahab, bukan oleh dirinya sendiri. Titik baliknya bukanlah mengalahkan Ahab secara fisik, melainkan <strong>mengambil kembali kompas itu</strong> — memilih arah hidupnya sendiri, alih-alih terus mengikuti arah yang selama ini ditentukan oleh orang yang pernah begitu dia kagumi."
+    ]
+  },
+  {
+    "id": "intervallo3",
+    "num": "INTERVALLO III · 5.5",
+    "title": "Miracle in District 20 · Yield My Flesh to Claim Their Bones",
+    "focus": "Dua kisah sampingan · pabrik hadiah dan konflik Blade Lineage di District 20",
+    "accent": "#9a463e",
+    "image": "images/heathcliff.png",
+    "sigil": "⚔",
+    "sections": [
+      {
+        "h": "Miracle in District 20",
+        "p": [
+          "Dalam jeda perjalanan setelah Canto V, Don Quixote mengajak Dante dan Heathcliff masuk ke sebuah pabrik hadiah di Outskirts. Pabrik itu dikelola para Gnome yang menculik warga Cloud Town dan mengolah manusia menjadi bahan produksi. Para Sinner menyelamatkan Crayon dan warga lain, lalu menghentikan Santata, pemimpin pabrik yang membalas penolakan City terhadap penghuni Outskirts.",
+          "Heathcliff mengira kunjungan itu berhubungan dengan undangan misterius dari Cathy di Wuthering Heights. Setelah kembali ke bus, ia mengungkap surat tersebut kepada kelompoknya. Perjalanan yang tampak seperti insiden musiman ternyata menjadi pertanda langsung menuju masa lalu Heathcliff."
+        ]
+      },
+      {
+        "h": "Yield My Flesh to Claim Their Bones",
+        "p": [
+          "Di Backstreets District 20, LCB terseret ke perang antara Kurokumo Clan dan Blade Lineage. Mereka menyelamatkan Aeng-du, yang meminta bantuan untuk menemukan mentornya, Bamboo-hatted Kim. Misi itu membawa kelompok ke gedung Yong-jin, tempat Monolith memicu Distortion dan memperburuk bentrokan antarfaksi.",
+          "Kim berubah menjadi Distortion setelah menyaksikan murid-murid Blade Lineage terbantai; ingatan akan kekalahan lama di S Corp. membuka kembali luka itu. Dante dan para Sinner menaklukkan wujud Distorted-nya serta menstabilkan Monolith. Namun, setelah pulih, Kim diseret Aeng-du untuk membalas kematian rekan-rekannya. Meursault menghentikan Aeng-du sebelum ia ikut mengalami Distortion."
+        ]
+      }
+    ],
+    "quote": "“Rasa setia dan rasa bersalah bisa memakai wajah yang sama.”",
+    "song": null,
+    "songNote": null,
+    "philosophy": [
+      "Dua kisah ini menaruh belas kasih dalam situasi yang tidak rapi. Crayon dan warga Outskirts diselamatkan tanpa menghapus alasan kemarahan Santata; Aeng-du dan Kim sama-sama terluka, tetapi luka itu tidak membuat balas dendam menjadi jalan keluar.",
+      "Yield My Flesh to Claim Their Bones bertanya apakah pengorbanan demi kelompok selalu mulia, atau kadang hanya meneruskan kekerasan yang diwariskan."
     ]
   },
   {
@@ -266,6 +323,38 @@ const CANTOS = [
     ]
   },
   {
+    "id": "intervallo4",
+    "num": "INTERVALLO IV · 6.5",
+    "title": "Timekilling Time · Murder on the WARP Express",
+    "focus": "Kasus Time Ripper dan Distortion di kereta WARP",
+    "accent": "#8b5a76",
+    "image": "images/donquixote.png",
+    "sigil": "⌛",
+    "sections": [
+      {
+        "h": "Timekilling Time",
+        "p": [
+          "Setelah Wuthering Heights, LCB ditagih Time Tax sebesar 10.040.000.000 Ahn akibat kemampuan Dante memperlambat waktu. T Corp. menawarkan penghapusan utang jika tim menyelidiki Time Ripper, Distortion yang mencuri waktu. Rodion, Ryoshu, dan Hong Lu membentuk tim detektif bersama pegawai yang belakangan diketahui sebagai direktur eksekutif T Corp., Herbert.",
+          "Penyelidikan mempertemukan mereka dengan Yurodiviye dan masa lalu Time Ripper: ia meminjamkan waktu kepada saudaranya untuk ujian, tetapi saudaranya tewas dalam kecelakaan sebelum waktu itu sempat dikembalikan. Kasus tersebut mengguncang Rodion karena mengingatkannya pada Sonya. Herbert lalu mengungkap keyakinannya bahwa menghentikan waktu berarti menghentikan perubahan dan penderitaan."
+        ]
+      },
+      {
+        "h": "Murder on the WARP Express",
+        "p": [
+          "Dalam perjalanan dengan kereta WARP menuju P Corp., Faust kehilangan kontak dengan Gesellschaft. Ia membangunkan Dante dan para Sinner untuk menyelidiki penumpang yang hilang; jejaknya mengarah kepada Cassetti, Bloodfiend yang mengubah penumpang menjadi Bloodbag untuk membangun keluarganya.",
+          "Saat Cassetti menyerang Don Quixote, Rocinante terlepas dan sisi Bloodfiend Don muncul. Cassetti mengenalinya sebagai Second Kindred dan memohon ampun, tetapi Don membubarkan Cassetti serta para Kindred-nya. Setelah itu, ia tidak mengingat kejadian tersebut. Faust mengakui bahwa ia dan Vergilius telah mengetahui jati diri Don."
+        ]
+      }
+    ],
+    "quote": "“Waktu terus berjalan; ingatanlah yang menentukan apa yang tertinggal.”",
+    "song": null,
+    "songNote": null,
+    "philosophy": [
+      "Kedua kisah memperlihatkan orang yang mencoba menguasai waktu, kematian, dan perubahan. Upaya menghentikannya justru mengalihkan penderitaan kepada orang lain.",
+      "Peristiwa di kereta menantang batas pengetahuan kelompok. Faust menyimpan rahasia demi misi, tetapi kebiasaan itu membuat kepercayaan para Sinner rapuh."
+    ]
+  },
+  {
     id:"canto7", num:"CANTO VII", title:"The Dream Ending", focus:"Fokus: Don Quixote · La Manchaland, P Corp",
     accent:"#b0632e", image:"images/donquixote.png", sigil:"🗡",
     sections:[
@@ -293,6 +382,38 @@ const CANTOS = [
       "Referensi ke novel 'Don Quixote' karya Cervantes di sini dibalik secara cerdas: bukan Don Quixote yang asli yang jadi protagonis utama, melainkan Sancho — yang mengambil alih nama sekaligus mimpi ayahnya. Ini mengangkat pertanyaan filosofis tentang <strong>identitas yang diwariskan versus identitas yang dipilih sendiri secara sadar</strong>. Sancho awalnya memakai nama itu bukan karena dia benar-benar mempercayainya, melainkan karena itulah satu-satunya hal yang masih tersisa dari ayahnya.",
       "Novel asli karya Cervantes sendiri sebenarnya adalah sebuah satir tentang seorang pria yang membaca terlalu banyak kisah kesatria, sampai kehilangan pijakan pada kenyataan — tetapi Limbus Company membalik pembacaan itu menjadi jauh lebih simpatik: <strong>mungkin memilih untuk terus percaya pada mimpi yang terasa 'mustahil', meski dunia mengatakan itu delusi belaka, sebenarnya adalah bentuk keberanian, bukan kegilaan.</strong>",
       "Judul lagu 'Hero' terasa ironis sekaligus tulus pada saat bersamaan: Sancho bukanlah pahlawan dalam pengertian konvensional — tidak ada monster besar yang dikalahkan demi menyelamatkan dunia — tetapi dia justru menjadi pahlawan bagi dirinya sendiri, dengan sadar memilih untuk mengangkat kembali nama dan mimpi itu, bukan lagi karena terpaksa mewarisinya, melainkan karena akhirnya dia benar-benar meyakininya sepenuh hati. Lagu ini merayakan momen ketika sebuah kewajiban berubah menjadi sebuah pilihan."
+    ]
+  },
+  {
+    "id": "intervallo5",
+    "num": "INTERVALLO V · 7.5",
+    "title": "LCB Regular Check-up · Nocturnal Sweeping",
+    "focus": "Pemeriksaan di markas LCE dan awal konflik keluarga Hong Lu",
+    "accent": "#78924d",
+    "image": "images/honglu.png",
+    "sigil": "✦",
+    "sections": [
+      {
+        "h": "LCB Regular Check-up",
+        "p": [
+          "Permintaan Gregor untuk berlibur berubah menjadi pemeriksaan rutin di markas Limbus Company. Hohenheim dan tim LCE menguji kemampuan para Sinner serta mengungkap bahwa kontrak mereka dengan Dante menahan kekuatan mereka pada tingkat tertentu. Ketika Rocinante dilepas, haus darah Don Quixote kembali mengambil alih dan Vergilius harus menghentikannya.",
+          "Pemeriksaan berakhir dengan Hohenheim sendiri mengalami Distortion. Di dalam Fathoms, para Sinner mengetahui rasa bersalahnya sebagai penyintas Lobotomy Corporation: ia percaya telah meninggalkan rekan-rekannya, sementara kenangan menunjukkan Johann mendorongnya ke kapsul penyelamat. Setelah pulih, Gregor tetap menjadi pengecualian yang tak dijelaskan dalam hasil tes."
+        ]
+      },
+      {
+        "h": "Nocturnal Sweeping",
+        "p": [
+          "Misi berikutnya membawa LCB ke Hongyuan di District 8. Sebuah Office mencoba membunuh Hong Lu untuk menyingkirkannya dari evaluasi calon Hierarch keluarga Jia. Saude dan Pilot kembali bergabung dengan kelompok, sementara Qingtao, mantan pelayan keluarga Jia, membuka pintu menuju perebutan kekuasaan di Hongyuan.",
+          "Ricardo dan para adik Middle akhirnya menyusul para Sinner karena urusan kupon rambut Heathcliff. Bentrokan mereka mempertemukan LCB dengan Xichun serta para keluarga besar. Konflik suksesi ini menjadi panggung bagi kisah Hong Lu yang berlanjut di Canto VIII."
+        ]
+      }
+    ],
+    "quote": "“Tes paling sulit sering kali mengungkap siapa yang tidak tercatat.”",
+    "song": null,
+    "songNote": null,
+    "philosophy": [
+      "Pemeriksaan Hohenheim mengukur kekuatan sebagai angka, tetapi bagian terpentingnya adalah apa yang tak bisa diukur: beban Don atas keluarganya dan rasa bersalah Hohenheim. Label 'pengecualian' pada Gregor menegaskan bahwa catatan perusahaan bukan pemahaman utuh tentang seseorang.",
+      "Nocturnal Sweeping menunjukkan bagaimana identitas keluarga dan politik menentukan siapa yang boleh hidup atau memimpin. Hong Lu kembali diperlakukan sebagai aset yang harus disingkirkan."
     ]
   },
   {
@@ -327,6 +448,37 @@ const CANTOS = [
     ]
   },
   {
+    "id": "intervallo6",
+    "num": "INTERVALLO VI · 8.5",
+    "title": "Spring Cultivation",
+    "focus": "Xichun berlatih menjadi Hierarch Hongyuan · District 8",
+    "accent": "#8c6a42",
+    "image": "images/sinclair.png",
+    "sigil": "🌱",
+    "sections": [
+      {
+        "h": "Tiga puluh hari untuk membuktikan diri",
+        "p": [
+          "Setelah dewan Daguanyuan meragukan kelayakan Jia Xichun sebagai Hierarch, Sinclair membelanya dan Zigong meminta agar ia diberi kesempatan. Xichun mendapat waktu tiga puluh hari untuk berlatih, dengan ujian tanding setiap enam hari. Para Sinner bergantian mengajarinya strategi dan cara membaca orang; permainan petualangan yang dipandu Ishmael juga membantu Xichun, Sinclair, dan Ishmael menjadi lebih dekat.",
+          "Dalam prosesnya, Sinclair mengakui kepada Dante bahwa ia merasa dipilih sebagai murid Xichun sebagai kompensasi karena belum memenuhi harapan perusahaan. Xichun akhirnya menghadapi ujian yang ternyata jebakan, menyelamatkan diri dari Night Drifter, dan memperoleh dukungan untuk memimpin Hongyuan."
+        ]
+      },
+      {
+        "h": "Sisipan 8.5-EX: Pilgrimage of Compassion",
+        "p": [
+          "Cerita kolaborasi terbatas ini berlangsung setelah Spring Cultivation: LCB menyelidiki anomali di Iberia yang terhubung ke pintu dimensional, lalu bertemu dengan Doctor dan para operator Rhodes Island dari Arknights. Cerita ini memperluas tema perjalanan lintas dunia dan bantuan kepada orang asing; ia merupakan event khusus, bukan bagian bernomor dari Intervallo VI."
+        ]
+      }
+    ],
+    "quote": "“Menjadi pemimpin berarti belajar memilih, bukan sekadar mewarisi.”",
+    "song": null,
+    "songNote": null,
+    "philosophy": [
+      "Xichun memperoleh kepercayaan bukan dengan menjadi paling kuat, melainkan dengan mendengar keberatan, menahan diri dari menghukum tanpa bukti, dan tetap bertindak saat orang yang ia sayangi dalam bahaya.",
+      "Bagi Sinclair, masa latihan itu menunjukkan bahwa membantu seseorang tidak berarti mengendalikan hasil hidupnya. Ia bisa mendampingi Xichun tanpa mengetahui bagaimana perjalanannya sendiri akan berakhir."
+    ]
+  },
+  {
     id:"canto9", num:"CANTO IX", title:"The Unsevering", focus:"Fokus: Ryoshu · Markas Limbus Company",
     accent:"#8a2e2e", image:"images/ryoshu.png", sigil:"🖌",
     sections:[
@@ -353,6 +505,108 @@ const CANTOS = [
       "Ryoshu terinspirasi dari pelukis Yoshihide dalam legenda Jepang 'Hell Screen' — sosok yang rela membiarkan hal-hal mengerikan terjadi, bahkan pada orang yang paling dia cintai, demi menciptakan sebuah karya seni yang sempurna. Ini mengangkat pertanyaan filosofis tentang <strong>harga sesungguhnya dari sebuah obsesi terhadap kesempurnaan</strong>: seberapa banyak kemanusiaan yang boleh dikorbankan hanya demi mencapai satu pencapaian yang sempurna?",
       "'SAIKAI' (再会) secara harfiah berarti <strong>'reuni'</strong> dalam bahasa Jepang. Liriknya membawa pesan paling tajam dari seluruh soundtrack Limbus Company: sebuah pengakuan bahwa <strong>'pengorbanan sebenarnya adalah jalan yang gampang'</strong> — menjauh atau menghilang 'demi kebaikan orang lain' pada kenyataannya sering kali hanyalah pelarian dari kerja yang jauh lebih sulit, yaitu kehadiran yang jujur dan penuh kerentanan. Ketiadaan tidak pernah benar-benar mengubah fakta yang sudah terlanjur terjadi.",
       "Ini kritik langsung terhadap apa yang sering disebut sebagai 'martyr complex' — pengorbanan diri yang dari luar terlihat begitu mulia, tetapi sebenarnya adalah cara menghindari tanggung jawab emosional yang jauh lebih berat. Rien, dalam permintaan maafnya, mengakui bahwa inilah kesalahannya yang sesungguhnya: memilih jarak, alih-alih tetap hadir untuk Ryoshu. Judul 'reuni' pun terasa ironis sekaligus indah pada saat bersamaan — pertemuan paling jujur di antara mereka justru datang tepat di ambang perpisahan permanen, sebuah gema dari pola yang konsisten muncul di banyak karakter tragis lainnya: kejujuran emosional yang paling murni sering kali baru muncul ketika semuanya sudah terlambat, tetapi itu tidak pernah membuatnya menjadi kurang bermakna."
+    ]
+  },
+  {
+    "id": "intervallo7a",
+    "num": "INTERVALLO VII · 9.5",
+    "title": "Twining Threads",
+    "focus": "Pemakaman di markas LCB, Koridor, dan keputusan Ryoshu",
+    "accent": "#a34c69",
+    "image": "images/ryoshu.png",
+    "sigil": "🧵",
+    "sections": [
+      {
+        "h": "Duka, pintu, dan kenangan",
+        "p": [
+          "Setelah serangan terhadap markas, para Sinner menghadiri pemakaman Marton dan para peneliti LCE yang gugur. Sinclair dibawa untuk pemeriksaan Sign-nya; Dante, Faust, Don Quixote, dan Ryoshu membantu Kira yang baru sadar setelah terluka di House of Spiders. Penelitian Hohenheim mengungkap bahwa sarung pedang Ryoshu menyimpan kehendak Araya.",
+          "Saat menjelajahi pintu-pintu Koridor, para Sinner berhadapan dengan kenangan pribadi: Gregor bertemu mantan rekan kerjanya, sementara Ryoshu menelusuri jejak putrinya. Mereka berdebat dengan Rufo, seorang Docent Fauvisme, tentang seni dan nilai pengalaman. Untuk membuka jalan keluar, Ryoshu memutuskan menggunakan Arayashiki dan menerima bahwa sebagian kenangan akan hilang, bukan lenyap selamanya."
+        ]
+      },
+      {
+        "h": "Keberangkatan menuju District 14",
+        "p": [
+          "Ryoshu percaya kenangan yang dikorbankan masih bisa dipulihkan setelah Golden Bough terkumpul. Sebelum berpisah, Alan memperingatkan bahwa runtuhnya L Corp. dan W Corp. akan memicu perebutan bisnis baru. LCB meninggalkan Hongyuan dan menuju District 14, tujuan yang membuat Sinclair dan Gregor tegang."
+        ]
+      }
+    ],
+    "quote": "“Kenangan dapat pudar tanpa membuat kasih sayang menjadi palsu.”",
+    "song": null,
+    "songNote": null,
+    "philosophy": [
+      "Twining Threads memandang ingatan sebagai sesuatu yang bisa berubah bentuk, tetapi hubungan tidak selalu hilang bersamanya. Ryoshu memilih kehilangan sebagian memori secara sadar; Gregor menemukan bahwa percakapan sederhana dapat meringankan beban lama.",
+      "Duka di markas, masa lalu para Sinner, dan dampak kejatuhan Wing lama mulai membentuk konflik baru setelah mereka meninggalkan Hongyuan."
+    ]
+  },
+  {
+    "id": "intervallo7b",
+    "num": "INTERVALLO VII · 9.5",
+    "title": "Mnestic Experience",
+    "focus": "Kasus Distortion, Canned Experiences, dan penangkapan Meursault",
+    "accent": "#65788b",
+    "image": "images/Meursault_StandingSprite.png",
+    "sigil": "📷",
+    "sections": [
+      {
+        "h": "Kasus foto di District 14",
+        "p": [
+          "Di District 14, LCB membantu LCD menyelidiki Distortion yang berkaitan dengan foto dan Canned Experiences. Mereka bertemu kembali dengan Aeng-du, Bamboo-hatted Kim, dan Ezra. Sebuah film bertanda Experiment #4 membawa mereka ke jejak staf N Corp. dan Distortion berbentuk lokasi yang menyeret para Sinner ke Fathoms menyerupai S Corp.",
+          "Kim berkali-kali menghilang untuk bertindak menurut instingnya sendiri. Foto-foto yang dikembangkan Meursault mengarah ke pemilik toko roti dan Docugrapher, orang yang memotret tempat biasa untuk membuat Canned Experiences. Ia ingin membuktikan foto-fotonya punya arti di tengah hiburan buatan yang membuat warga puas dan pasif."
+        ]
+      },
+      {
+        "h": "Kim, Aeng-du, dan akhir kasus",
+        "p": [
+          "Di dalam Fathoms, Kim berhadapan dengan bayangan Im Gyeong-eop—versi dirinya yang menyerah pada keyakinan bahwa S Corp. tidak mungkin berubah. Aeng-du menolak membiarkannya menyerah. Kim menerima kegagalannya tanpa terus memikulnya sebagai hukuman, lalu membangkitkan Volatile E.G.O. Pertarungan itu mengungkap Docugrapher sebagai sumber Distortion dan menutup kasus.",
+          "Sesudah perpisahan dengan Kim, Aeng-du, dan Ezra, staf Pinframe N Corp. menangkap Meursault. Ia disebut mantan One Who Nails dan anggota tim pemeliharaan Grand Magasin Sisyphe yang kembali setelah diusir dari District 14. Para Sinner diberi tahu bahwa hukuman eksekusinya akan ditinjau kembali; penangkapan itu mengantar langsung ke Canto X."
+        ]
+      }
+    ],
+    "quote": "“Pengalaman bukan barang yang bisa menggantikan hidup.”",
+    "song": null,
+    "songNote": null,
+    "philosophy": [
+      "Canned Experiences menawarkan jalan pintas untuk merasakan sesuatu tanpa menjalaninya. Docugrapher menolak anggapan bahwa pengalaman sehari-hari tak berarti, tetapi upaya memaksa orang lain mengakui nilai fotonya justru menjebaknya dalam Distortion.",
+      "Kim menemukan arah bukan dengan menghapus kegagalannya, melainkan dengan mengakuinya dan bergerak lagi. Kisahnya berpasangan dengan Meursault yang dibawa kembali ke pengadilan."
+    ]
+  },
+  {
+    "id": "canto10",
+    "num": "CANTO X · BAGIAN I–II",
+    "title": "The Gaze Bearing",
+    "focus": "Meursault · Grand Magasin Sisyphe, District 14 · sampai Part II (29 September 2026)",
+    "accent": "#586a87",
+    "image": "images/Meursault_StandingSprite.png",
+    "sigil": "⚖",
+    "sections": [
+      {
+        "h": "Vonis dan jalan masuk ke Grand Magasin",
+        "p": [
+          "Tak lama setelah penangkapannya, Meursault menjalani sidang atas pembunuhan ibunya, seorang Sisyphean Giant. Faust sengaja mengarahkan pembelaan hingga ia dijatuhi Sisyphe Penalty dan dihukum gantung; kemudian terungkap bahwa langkah itu bagian dari rencana untuk memasuki Grand Magasin Sisyphe dan mengambil Golden Bough. Tempat itu adalah ruang virtual N Corp. yang memproduksi Canned Experiences lewat para Giant dan pelanggan yang mengejar tren.",
+          "Di dalam Magasin, Meursault menjadi satu-satunya Sinner yang dapat berinteraksi penuh dengan ruang tersebut. Jeanne, mantan kekasihnya yang kini menjadi Giant, membantu mereka menavigasi lantai-lantai mall. Lady in Blue berulang kali memisahkan kelompok dan membalikkan kematian Meursault, sementara Kromer's Sister muncul dengan tujuan meruntuhkan tempat itu."
+        ]
+      },
+      {
+        "h": "Part I — Ataraxie",
+        "p": [
+          "Para Sinner terjebak dalam konflik Le Rouge dan Le Noir. Le Rouge ingin memakai Golden Bough untuk melahirkan Voice baru; Le Noir ingin mempertahankan tatanan Magasin. Setelah berpihak kepada Le Noir, kelompok mengalahkan Crimson God yang baru lahir, tetapi kestabilan Magasin berubah menjadi kehidupan tanpa kehendak: semua orang membeku seperti pepohonan dan Carmen menarasikan nasib mereka. Waktu kemudian kembali ke awal.",
+          "Dante dan Meursault menyadari mereka mengulang kejadian, sementara sebagian orang lain hanya menyimpan firasat. Meursault membawa sisa tubuh Crimson God dari putaran sebelumnya. Ia juga mengungkap bahwa ia pernah menolak bujukan Carmen karena muak terhadap apa yang terjadi pada ibunya."
+        ]
+      },
+      {
+        "h": "Part II — Bon Appétit (berlanjut)",
+        "p": [
+          "Kali ini para Sinner membantu Le Rouge. Pwie, bayi Crimson God yang lahir dari keinginan orang lain, ikut bersama mereka melewati lantai-lantai Magasin. Mereka mengumpulkan Golden Resin untuk membuat Golden Shroud agar bisa memasuki restoran di lantai lima, sambil berhadapan dengan Néants—faksi baru yang tumbuh dari pengaruh Carmen.",
+          "Untuk melengkapi jubah itu, Pwie akhirnya memakan Wriggley, cocoon yang dianggapnya teman. Di restoran, Pwie tumbuh menjadi Buffet dan memilih berhenti maju, menelan apa pun yang ada di hadapannya. Magasin kembali mengalami Liquidation; Canto X masih berjalan dan bagian berikutnya belum dirilis per 29 September 2026."
+        ]
+      }
+    ],
+    "quote": "“Diam bukan berarti tidak melihat; tetapi melihat juga menuntut pilihan.”",
+    "song": null,
+    "songNote": null,
+    "philosophy": [
+      "Canto X mempertemukan gagasan tatapan dengan tanggung jawab. Meursault dinilai oleh institusi melalui vonis, status, dan peran; di dalam Magasin, ia melihat orang-orang yang terus diulang bersama ingatan yang hampir selalu dihapus.",
+      "Dua bagian yang sudah terbit menawarkan jalan buntu berbeda: Ataraxie membekukan perubahan agar tidak ada rasa sakit, sementara Bon Appétit mengisi kekosongan dengan konsumsi sampai tak ada dorongan untuk maju. Canto X belum memberi jawaban akhir."
     ]
   }
 ]
