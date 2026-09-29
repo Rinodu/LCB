@@ -725,14 +725,42 @@
   }
 
 
-  /* Archive hierarchy and readability */
-  .archive-section-heading{
-    margin:2.4em 0 0.15em; padding:0;
-    color:var(--clock-gold); font-family:'Spectral',serif; font-size:0.7rem;
-    font-weight:400; letter-spacing:0.18em; line-height:1.4; text-transform:uppercase;
+  /* Archive motifs: one quiet glow per story arc */
+  .archive-group{
+    position:relative; isolation:isolate; margin:2.15em 0 2.5em;
+    padding:0 0 0.5em; border-radius:24px;
   }
-  .archive-section-heading:first-child{ margin-top:0; }
-  .archive-section-heading.hidden{ display:none; }
+  .archive-group:first-child{ margin-top:0; }
+  .archive-group.hidden{ display:none; }
+  .archive-group::before{
+    content:''; position:absolute; z-index:0; pointer-events:none;
+    inset:-1.1em -1.2em; border-radius:inherit; filter:blur(24px);
+    background:
+      radial-gradient(ellipse at 88% 20%, color-mix(in srgb, var(--group-glow) 22%, transparent), transparent 43%),
+      radial-gradient(ellipse at 8% 78%, color-mix(in srgb, var(--group-glow) 12%, transparent), transparent 45%);
+    opacity:0; transform:scale(0.94);
+  }
+  .archive-group:not(.is-in-view)::before{ animation:archiveGlowOut .55s ease-out both; }
+  .archive-group.is-in-view::before{
+    animation:archiveGlowIn 0.9s ease-out both, archiveGlowIdle 8s ease-in-out 0.9s infinite;
+  }
+  .archive-motif{
+    position:absolute; z-index:0; top:0.3em; right:0.04em; pointer-events:none;
+    color:var(--group-glow); font-family:'Cormorant Garamond',serif;
+    font-size:clamp(5rem,13vw,9rem); line-height:1; opacity:0;
+    text-shadow:0 0 26px color-mix(in srgb, var(--group-glow) 50%, transparent);
+    transform:translateY(12px) rotate(-10deg) scale(0.94);
+  }
+  .archive-group:not(.is-in-view) .archive-motif{ animation:archiveMotifOut .5s ease-out both; }
+  .archive-group.is-in-view .archive-motif{
+    animation:archiveMotifIn 0.9s cubic-bezier(.2,.7,.2,1) both, archiveMotifIdle 9s ease-in-out 0.9s infinite;
+  }
+  .archive-section-heading,.archive-group .canto-row{ position:relative; z-index:1; }
+  .archive-section-heading{
+    margin:0 0 0.15em; padding:0; color:var(--clock-gold);
+    font-family:'Spectral',serif; font-size:0.7rem; font-weight:400;
+    letter-spacing:0.18em; line-height:1.4; text-transform:uppercase;
+  }
   .canto-num{ font-size:0.7rem; letter-spacing:0.13em; }
   .canto-row-title{ line-height:1.05; }
   .canto-row-focus{
@@ -743,7 +771,18 @@
     color:color-mix(in srgb, var(--parchment-dim) 65%, var(--parchment));
     font-size:0.76rem; opacity:0.92;
   }
-  @media (max-width:760px){ .archive-section-heading{ margin-top:2em; } }
+  @keyframes archiveGlowIn{ from{opacity:0;transform:scale(0.94)} to{opacity:0.55;transform:scale(1)} }
+  @keyframes archiveGlowIdle{ 0%,100%{opacity:0.25;transform:scale(0.98)} 50%{opacity:0.52;transform:scale(1.04)} }
+  @keyframes archiveGlowOut{ from{opacity:0.4;transform:scale(1.02)} to{opacity:0;transform:scale(0.94)} }
+  @keyframes archiveMotifIn{ from{opacity:0;transform:translateY(12px) rotate(-10deg) scale(0.94)} to{opacity:0.11;transform:translateY(0) rotate(-10deg) scale(1)} }
+  @keyframes archiveMotifIdle{ 0%,100%{opacity:0.07;transform:translateY(0) rotate(-10deg) scale(1)} 50%{opacity:0.13;transform:translateY(-7px) rotate(-8deg) scale(1.025)} }
+  @keyframes archiveMotifOut{ from{opacity:0.1;transform:translateY(0) rotate(-10deg) scale(1)} to{opacity:0;transform:translateY(10px) rotate(-10deg) scale(0.94)} }
+  @media (max-width:640px){
+    .archive-group{ margin:1.7em 0 2em; }
+    .archive-group::before{ inset:-0.7em -0.35em; filter:blur(18px); }
+    .archive-motif{ top:0.6em; right:0; font-size:clamp(4.5rem,22vw,7rem); }
+  }
+
 
 </style>
 </head>
@@ -1364,7 +1403,17 @@ document.getElementById('continueCard').addEventListener('click', () => {
   if (idx >= 0) openCanto(idx, last.scroll);
 });
 
+const ARCHIVE_GROUP_VISUALS = {
+  PROLOGUE: {className:'prologue', motif:'◷', glow:'#c9a24b'},
+  'CANTO I–IV': {className:'early', motif:'✶', glow:'#8d78b4'},
+  'CANTO V–VI': {className:'lake', motif:'≈', glow:'#4c9eb5'},
+  'CANTO VII–IX': {className:'threads', motif:'糸', glow:'#a96788'},
+  'CANTO X': {className:'gaze', motif:'◉', glow:'#bf7d49'}
+};
+let archiveGroupObserver = null;
+
 function renderArchive(filter){
+  archiveGroupObserver?.disconnect();
   archive.innerHTML = '';
   const readSet = getReadSet();
   const f = (filter||'').trim().toLowerCase();
@@ -1391,15 +1440,27 @@ function renderArchive(filter){
     return {c,i,group,matches};
   });
   const visibleGroups = new Set(entries.filter(entry => entry.matches).map(entry => entry.group));
-  let lastGroup = '';
+  const sections = new Map();
 
   entries.forEach(({c,i,group,matches}) => {
-    if (group !== lastGroup){
+    let section = sections.get(group);
+    if (!section){
+      const look = ARCHIVE_GROUP_VISUALS[group] || {className:'gaze', motif:'◉', glow:'#c9a24b'};
+      section = document.createElement('section');
+      section.className = 'archive-group archive-group-' + look.className + (visibleGroups.has(group) ? '' : ' hidden');
+      section.setAttribute('aria-label', group);
+      section.style.setProperty('--group-glow', look.glow);
+      const motif = document.createElement('span');
+      motif.className = 'archive-motif';
+      motif.setAttribute('aria-hidden', 'true');
+      motif.textContent = look.motif;
+      section.appendChild(motif);
       const heading = document.createElement('h2');
-      heading.className = 'archive-section-heading' + (visibleGroups.has(group) ? '' : ' hidden');
+      heading.className = 'archive-section-heading';
       heading.textContent = group;
-      archive.appendChild(heading);
-      lastGroup = group;
+      section.appendChild(heading);
+      archive.appendChild(section);
+      sections.set(group, section);
     }
     const row = document.createElement('div');
     row.className = 'canto-row' + (matches ? '' : ' hidden');
@@ -1421,8 +1482,17 @@ function renderArchive(filter){
       </div>
     `;
     row.addEventListener('click', () => openCanto(i));
-    archive.appendChild(row);
+    section.appendChild(row);
   });
+
+  if ('IntersectionObserver' in window){
+    archiveGroupObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.target.classList.toggle('is-in-view', entry.isIntersecting));
+    }, {threshold:0.12});
+    archive.querySelectorAll('.archive-group:not(.hidden)').forEach(group => archiveGroupObserver.observe(group));
+  } else {
+    archive.querySelectorAll('.archive-group:not(.hidden)').forEach(group => group.classList.add('is-in-view'));
+  }
 
   renderContinue();
 }
