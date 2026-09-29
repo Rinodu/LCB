@@ -1,7 +1,7 @@
 // ============================================================
 // INFERNO — Limbus Company Canto Archive
-// File konten terpisah dari kode aplikasi (limbus-inferno.html)
-// Supaya nambah/edit konten (mis. Canto X nanti) tidak perlu
+// File konten terpisah dari kode aplikasi (index.html)
+// Supaya penambahan kisah baru umumnya tidak perlu
 // menyentuh kode fungsional sama sekali — cukup edit file ini.
 //
 // Terakhir diverifikasi/diperbarui: 29 September 2026
