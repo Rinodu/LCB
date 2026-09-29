@@ -784,6 +784,49 @@
   }
 
 
+  /* ===== Main Canto reader emblem and ambient glow ===== */
+  .reader.main-canto{ isolation:isolate; }
+  .reader.main-canto::before,.reader.canto-fx-out::before{
+    content:''; position:absolute; z-index:-1; pointer-events:none;
+    top:-3rem; left:-8vw; right:-8vw; height:min(55vh,520px); border-radius:50%;
+    background:radial-gradient(ellipse at 50% 20%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%);
+    filter:blur(18px);
+  }
+  .reader.main-canto::before{ opacity:0; animation:readerGlowIn 0.9s ease-out forwards, readerGlowIdle 8s ease-in-out 0.9s infinite; }
+  .reader.canto-fx-out::before{ opacity:.82; animation:readerGlowOut 0.6s ease forwards; }
+  .reader-emblem{
+    display:none; position:relative; width:clamp(72px,18vw,92px); aspect-ratio:1;
+    margin:0 auto 1.6em; align-items:center; justify-content:center; border-radius:50%;
+    color:var(--accent); background:radial-gradient(circle, color-mix(in srgb, var(--accent) 12%, transparent), transparent 72%);
+    filter:drop-shadow(0 0 12px color-mix(in srgb, var(--accent) 32%, transparent));
+    user-select:none;
+  }
+  .reader.main-canto .reader-emblem,.reader.canto-fx-out .reader-emblem{ display:flex; }
+  .reader.main-canto.canto-fx-in .reader-emblem{
+    animation:readerEmblemIn 0.8s cubic-bezier(.2,.75,.25,1) both, readerEmblemIdle 6s ease-in-out 0.8s infinite;
+  }
+  .reader.canto-fx-out .reader-emblem{ animation:readerEmblemOut 0.55s ease forwards; }
+  .reader-emblem-ring{
+    position:absolute; inset:5px; border:1px solid color-mix(in srgb, var(--accent) 62%, transparent);
+    border-radius:50%; box-shadow:inset 0 0 18px color-mix(in srgb, var(--accent) 10%, transparent), 0 0 16px color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+  .reader-emblem-ring::before,.reader-emblem-ring::after{
+    content:''; position:absolute; border-radius:50%; border:1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  }
+  .reader-emblem-ring::before{ inset:7px; }
+  .reader-emblem-ring::after{ inset:-5px; border-style:dashed; opacity:0.55; }
+  .reader-emblem-mark{
+    position:relative; z-index:1; font-size:2.1rem; line-height:1;
+    text-shadow:0 0 18px color-mix(in srgb, var(--accent) 65%, transparent);
+  }
+  @keyframes readerGlowIn{ from{opacity:0;transform:scale(.88)} to{opacity:.82;transform:scale(1)} }
+  @keyframes readerGlowIdle{ 0%,100%{opacity:.62;transform:scale(1)} 50%{opacity:.9;transform:scale(1.04)} }
+  @keyframes readerGlowOut{ to{opacity:0;transform:scale(.9)} }
+  @keyframes readerEmblemIn{ from{opacity:0;transform:translateY(14px) scale(.72)} to{opacity:1;transform:translateY(0) scale(1)} }
+  @keyframes readerEmblemIdle{ 0%,100%{filter:drop-shadow(0 0 10px color-mix(in srgb, var(--accent) 26%, transparent))} 50%{filter:drop-shadow(0 0 19px color-mix(in srgb, var(--accent) 48%, transparent))} }
+  @keyframes readerEmblemOut{ to{opacity:0;transform:translateY(-8px) scale(.82);filter:blur(3px)} }
+  @media (max-width:640px){ .reader-emblem{ margin-bottom:1.25em; } }
+
 </style>
 </head>
 <body>
@@ -902,6 +945,7 @@
 <!-- ===== READER PAGE ===== -->
 <div class="page" id="page-reader">
   <div class="reader">
+    <div class="reader-emblem" aria-hidden="true"><span class="reader-emblem-ring"></span><span class="reader-emblem-mark" id="readerEmblemMark"></span></div>
     <div class="reader-eyebrow" id="rEyebrow" title="Kembali ke Daftar Isi"></div>
     <div class="reader-focus" id="rFocus"></div>
     <h2 class="reader-title" id="rTitle"></h2>
@@ -1627,6 +1671,28 @@ function transitionTo(fn){
   setTimeout(() => { fn(); setTimeout(() => chapterTransition.classList.remove('active'), 40); }, 320);
 }
 
+let readerFxTimer = null;
+function clearReaderCantoEffects(){
+  const reader = document.querySelector('.reader');
+  if (!reader || !reader.classList.contains('main-canto')) return;
+  clearTimeout(readerFxTimer);
+  reader.classList.remove('canto-fx-in');
+  reader.classList.add('canto-fx-out');
+  reader.classList.remove('main-canto');
+  readerFxTimer = setTimeout(() => reader.classList.remove('canto-fx-out'), 650);
+}
+function setReaderCantoEffects(c){
+  const reader = document.querySelector('.reader');
+  if (!reader) return;
+  clearTimeout(readerFxTimer);
+  if (!c.num.startsWith('CANTO ')){ clearReaderCantoEffects(); return; }
+  reader.classList.remove('main-canto','canto-fx-in','canto-fx-out');
+  document.getElementById('readerEmblemMark').textContent = c.sigil;
+  void reader.offsetWidth;
+  reader.classList.add('main-canto','canto-fx-in');
+  readerFxTimer = setTimeout(() => reader.classList.remove('canto-fx-in'), 950);
+}
+
 function openCanto(i, restoreScroll, fromPopstate){
   const readerEl = document.querySelector('.reader');
   const isCantoToCanto = currentIndex >= 0 && pages.reader.classList.contains('active');
@@ -1644,6 +1710,7 @@ function openCanto(i, restoreScroll, fromPopstate){
     currentIndex = i;
     const c = CANTOS[i];
     setAccent(c.accent);
+    setReaderCantoEffects(c);
     markRead(c.id);
     saveLastPosition(c.id, restoreScroll || 0);
 
@@ -1735,6 +1802,7 @@ btnPrev.addEventListener('click', () => { if (currentIndex>0) openCanto(currentI
 btnNext.addEventListener('click', () => { if (currentIndex < CANTOS.length-1) openCanto(currentIndex+1); else backToIndex(); });
 
 function backToIndex(fromPopstate){
+  clearReaderCantoEffects();
   transitionTo(() => {
     showPage('index');
     document.getElementById('sinnerBg').classList.remove('show');
