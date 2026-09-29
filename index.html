@@ -724,6 +724,27 @@
     .canto-row-arrow{ font-size:1rem; }
   }
 
+
+  /* Archive hierarchy and readability */
+  .archive-section-heading{
+    margin:2.4em 0 0.25em; padding:0 0 0.6em;
+    border-bottom:1px solid color-mix(in srgb, var(--clock-gold) 32%, var(--line));
+    color:var(--clock-gold); font-family:'Spectral',serif; font-size:0.7rem;
+    font-weight:400; letter-spacing:0.18em; line-height:1.4; text-transform:uppercase;
+  }
+  .archive-section-heading:first-child{ margin-top:0; }
+  .canto-num{ font-size:0.7rem; letter-spacing:0.13em; }
+  .canto-row-title{ line-height:1.05; }
+  .canto-row-focus{
+    color:color-mix(in srgb, var(--parchment-dim) 72%, var(--parchment));
+    font-size:0.88rem; line-height:1.5;
+  }
+  .canto-row-meta{
+    color:color-mix(in srgb, var(--parchment-dim) 65%, var(--parchment));
+    font-size:0.76rem; opacity:0.92;
+  }
+  @media (max-width:760px){ .archive-section-heading{ margin-top:2em; } }
+
 </style>
 </head>
 <body>
@@ -1347,10 +1368,39 @@ function renderArchive(filter){
   archive.innerHTML = '';
   const readSet = getReadSet();
   const f = (filter||'').trim().toLowerCase();
-
-  CANTOS.forEach((c,i) => {
+  const romanValues = {I:1,V:5,X:10,L:50,C:100,D:500,M:1000};
+  const romanNumber = (roman) => {
+    let total = 0;
+    for (let i=0; i<roman.length; i++){
+      const value = romanValues[roman[i]];
+      total += value < (romanValues[roman[i+1]] || 0) ? -value : value;
+    }
+    return total;
+  };
+  let currentCanto = 0;
+  const entries = CANTOS.map((c,i) => {
+    const chapter = c.num.match(/^CANTO ([IVXLCDM]+)/);
+    if (chapter) currentCanto = romanNumber(chapter[1]);
+    const group = c.num === 'PROLOG' ? 'PROLOGUE'
+      : currentCanto <= 4 ? 'CANTO I–IV'
+      : currentCanto <= 6 ? 'CANTO V–VI'
+      : currentCanto <= 9 ? 'CANTO VII–IX'
+      : 'CANTO ' + (chapter?.[1] || Object.keys(romanValues).find(key => romanValues[key] === currentCanto) || 'X');
     const contentText = c.sections.map(s => s.h + ' ' + s.p.join(' ')).join(' ').toLowerCase();
     const matches = !f || c.title.toLowerCase().includes(f) || c.focus.toLowerCase().includes(f) || c.num.toLowerCase().includes(f) || contentText.includes(f);
+    return {c,i,group,matches};
+  });
+  const visibleGroups = new Set(entries.filter(entry => entry.matches).map(entry => entry.group));
+  let lastGroup = '';
+
+  entries.forEach(({c,i,group,matches}) => {
+    if (group !== lastGroup){
+      const heading = document.createElement('h2');
+      heading.className = 'archive-section-heading' + (visibleGroups.has(group) ? '' : ' hidden');
+      heading.textContent = group;
+      archive.appendChild(heading);
+      lastGroup = group;
+    }
     const row = document.createElement('div');
     row.className = 'canto-row' + (matches ? '' : ' hidden');
     row.style.setProperty('--row-accent', c.accent);
