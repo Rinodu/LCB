@@ -698,6 +698,32 @@
   }
 
   ::selection{ background:var(--accent); color:var(--ink); }
+
+  /* ===== Archive rows: stable columns and readable long labels ===== */
+  .canto-row{ display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:1em; }
+  .canto-row-left{ display:grid; grid-template-columns:26px max-content minmax(0,1fr); align-items:center; gap:1em; min-width:0; }
+  .canto-row-left > div{ min-width:0; }
+  .canto-row-title,.canto-row-focus{ overflow-wrap:anywhere; }
+
+  @media (max-width:760px){
+    .canto-row{ align-items:start; padding:1.25em 0; gap:0.7em; }
+    .canto-row-left{ grid-template-columns:26px minmax(0,1fr); align-items:start; gap:0.25em 0.8em; }
+    .canto-row-left .sigil-wrap{ grid-column:1; grid-row:1 / span 3; margin-top:0.2em; }
+    .canto-row-left .canto-num{ grid-column:2; grid-row:1; white-space:normal; font-size:0.7rem; line-height:1.4; }
+    .canto-row-left > div{ grid-column:2; grid-row:2; }
+    .canto-row-title{ font-size:clamp(1.35rem,5.5vw,1.7rem); line-height:1.05; }
+    .canto-row-focus{ line-height:1.45; }
+    .canto-row-right{ align-self:center; gap:0.45em; }
+  }
+
+  @media (max-width:420px){
+    .archive,.index-controls{ padding-left:1.1rem; padding-right:1.1rem; }
+    .canto-row{ gap:0.4em; }
+    .canto-row-left{ grid-template-columns:24px minmax(0,1fr); gap:0.2em 0.65em; }
+    .canto-row-right{ gap:0.3em; }
+    .canto-row-arrow{ font-size:1rem; }
+  }
+
 </style>
 </head>
 <body>
